@@ -95,12 +95,10 @@
 	   var refreshIntervalId1;
 	   var refreshIntervalId2;
 	   var refreshIntervalId3;
-	   var refreshIntervalId4;
 
 	   var myClose;
 	   var mySend;
 	   var consumerMessages;
-	   var myConfirmation;
 	   var myRefuse;
 	   
 	   refreshIntervalId1 = setInterval(function(){
@@ -121,18 +119,9 @@
 				   	if(xyz.length > 0){
 					   	console.log("conversation started");
 						refreshIntervalId3 = setInterval(function(){
-							myConfirmation = document.getElementsByClassName("lp_confirm_button");
-							if(myConfirmation){
-								clearInterval(refreshIntervalId3);
-								$('.lp_confirm_button').click(function(){
-									showResult();
-								});
-							}
-						}, 100);
-						refreshIntervalId4 = setInterval(function(){
 							myRefuse = document.getElementsByClassName("lp_cancel_button");
 							if(myRefuse){
-								clearInterval(refreshIntervalId4);
+								clearInterval(refreshIntervalId3);
 								$('.p_cancel_button').click(function(){
 									startMonitoring();
 								});
