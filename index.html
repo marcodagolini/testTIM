@@ -72,33 +72,46 @@
 
 
   
-  function MyFunction2(){
-      console.log("inside 4th funtion");
-      var refreshIntervalId3 = setInterval(function(){
-         console.log("inside 5th funtion");
-         var myEle = document.getElementsByClassName("lp_submit_button");
-         if(myEle){
-		 setTimeout(function(){
-			$('.lp_submit_button').trigger('click');
-		 }, 1000);
-             
-             clearInterval(refreshIntervalId3);
-         }
-      } , 100);
-   }
-   
+  function countMessages(){
+	  var refreshIntervalId1 = setInterval(function(){
+		  var myEle = document.getElementsByClassName("lp_visitor");
+		  if(myEle){
+			  numberMessages = myEle.length;
+			  console.log(numberMessages + " messages");
+			  clearInterval(refreshIntervalId1);
+		  }
+	  }, 1000);
+  }
+
+      
+
    
    
    function ButtonClicked(){
-	   console.log("inside second function");
-	   var refreshIntervalId1 = setInterval(function(){
-		   console.log("inside third function");
-		   var myEle = document.getElementsByClassName("lp_close")[0];
-		   if(myEle){
+
+	   var refreshIntervalId1;
+	   var refreshIntervalId2;
+	   var myClose;
+	   var mySend;
+	   
+	   refreshIntervalId1 = setInterval(function(){
+		   myClose = document.getElementsByClassName("lp_close")[0];
+		   if(myClose){
 			   clearInterval(refreshIntervalId1);
 			   $('.lp_close').click(function(){
 				   console.log("close clicked");
 				   startMonitoring();
+			   });
+		   }
+	   }, 100);
+	   
+	   refreshIntervalId2 = setInterval(function(){
+		   mySend = document.getElementsByClassName("lp_send_button")[0];
+		   if(mySend){
+			   clearInterval(refreshIntervalId2);
+			   $('.lp_send_button').click(function(){
+				   console.log("sending message");
+				   countMessages();
 			   });
 		   }
 	   }, 100);
