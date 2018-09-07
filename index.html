@@ -120,11 +120,20 @@
 				   	var xyz = document.getElementsByClassName("lp_close");
 				   	if(xyz.length > 0){
 					   	console.log("conversation started");
+						clearInterval(refreshIntervalId2);
 						refreshIntervalId3 = setInterval(function(){
 							myRefuse = document.getElementsByClassName("lp_cancel_button");
 							if(myRefuse){
 								clearInterval(refreshIntervalId3);
 								$('.p_cancel_button').click(function(){
+									refreshIntervalId2 = setInterval(function(){
+										consumerMessages = document.getElementsByClassName("lp_visitor");
+										if(consumerMessages.length > 0){
+											clearInterval(refreshIntervalId2);
+											console.log("we have messages!");
+											WeHaveMessages = true;
+										}
+									}, 1000);
 									startMonitoring();
 								});
 							}
