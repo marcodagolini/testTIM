@@ -106,28 +106,29 @@
       
 
 
+   function startMonitoring(){
    
-   
-   var refreshIntervalId = setInterval(function(){
-	   console.log("inside first function");
-	   var myEle = document.getElementsByClassName("LPMcontainer")[0];
-	   if(myEle){
-	   // if(myEle && !firstcheck){
-		   console.log("button presented");
-		   firstcheck = true;
-		   clearInterval(refreshIntervalId);
-		   $('.LPMcontainer').click(function(){
-			   console.log("button clicked");
-			   ButtonClicked();
-		   });   
+   	var refreshIntervalId = setInterval(function(){
+	   	console.log("inside first function");
+	   	var myEle = document.getElementsByClassName("LPMcontainer")[0];
+	   	if(myEle){
+	   	// if(myEle && !firstcheck){
+		   	console.log("button presented");
+		   	firstcheck = true;
+		   	clearInterval(refreshIntervalId);
+		   	$('.LPMcontainer').click(function(){
+			   	console.log("button clicked");
+			   	ButtonClicked();
+		   	});   
 		   
-	   }
+	   	}
 
     
-   } , 500);
+   	} , 500);
+   }
    
    
-   
+   startMonitoring();
    
   </script>
   
