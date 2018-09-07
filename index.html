@@ -69,7 +69,7 @@
   
   <script>
 	  
-	  
+	 var firstcheck = false; 
 
   
   function MyFunction2(){
@@ -90,7 +90,7 @@
    
    
    function MyFunction(){
-      console.log("inside second funtion");
+      console.log("inside second function");
       var refreshIntervalId2 = setInterval(function(){
          console.log("inside third funtion");
          var myEle = document.getElementById("txt_5296250");
@@ -107,17 +107,17 @@
    var refreshIntervalId = setInterval(function(){
 	   console.log("inside first function");
 	   var myEle = document.getElementsByClassName("LPMcontainer")[0]; // inserire il corretto valore dell’ID del bottone di conferma dell’ordine
-	   if(myEle){
+	   if(myEle && !firstcheck){
 		   console.log("button presented");
+		   firstcheck = true;
 		   clearInterval(refreshIntervalId);
+		   $('.LPMcontainer').click(function(){
+			   console.log("button clicked");
+			   MyFunction();
+		   });   
 		   
 	   }
-	   
-     // $('.LPMcontainer').click(function(){
-        // console.log("hooray");
-        // clearInterval(refreshIntervalId);
-        // MyFunction();
-     // });
+
     
    } , 500);
    
