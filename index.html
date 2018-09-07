@@ -79,17 +79,6 @@
 	  
 
 
-  
-  function countMessages(){
-	  var refreshIntervalId1 = setInterval(function(){
-		  var myEle = document.getElementsByClassName("lp_visitor");
-		  if(myEle){
-			  numberMessages = myEle.length;
-			  console.log(numberMessages + " messages");
-			  clearInterval(refreshIntervalId1);
-		  }
-	  }, 1000);
-  }
 
       
 
@@ -112,6 +101,13 @@
 		   myClose = document.getElementsByClassName("lp_close")[0];
 		   if(myClose){
 			   clearInterval(refreshIntervalId1);
+			   refreshIntervalId2 = setInterval(function(){
+				   consumerMessages = document.getElementsByClassName("lp_visitor");
+				   if(consumerMessages){
+					   clearInterval(refreshIntervalId2);
+					   WeHaveMessages = true;
+				   }
+			   }, 1000);   
 			   $('.lp_close').click(function(){
 				   setTimeout(function(){
 				   	var xyz = document.getElementsByClassName("lp_close");
@@ -120,8 +116,8 @@
 						refreshIntervalId3 = setInterval(function(){
 							myConfirmation = document.getElementsByClassName("lp_confirm_button");
 							if(myConfirmation){
+								clearInterval(refreshIntervalId3);
 								$('.lp_confirm_button').click(function(){
-									clearInterval(refreshIntervalId3);
 									showResult();
 								});
 							}
@@ -129,8 +125,8 @@
 						refreshIntervalId4 = setInterval(function(){
 							myRefuse = document.getElementsByClassName("lp_cancel_button");
 							if(myRefuse){
+								clearInterval(refreshIntervalId4);
 								$('.p_cancel_button').click(function(){
-									clearInterval(refreshIntervalId4);
 									startMonitoring();
 								});
 							}
@@ -146,26 +142,6 @@
 		   }
 	   }, 100);
 	   
-	   refreshIntervalId2 = setInterval(function(){
-		   mySend = document.getElementsByClassName("lp_send_button")[0];
-		   if(mySend){
-			   clearInterval(refreshIntervalId2);
-			   $('.lp_send_button').click(function(){
-				   console.log("sending message");
-				   countMessages();
-			   });
-			   setTimeout(function(){
-				   consumerMessages = document.getElementsByClassName("lp_visitor");
-				   if(consumerMessages){
-					   numberMessages = consumerMessages.length;
-				   } else{
-					   numberMessages = 0;
-				   }
-				   console.log(numberMessages + " messages");
-			   }, 1000);
-		   }
-	   }, 100);
-	   
 
    }
       
@@ -175,7 +151,7 @@
 	   
 	   var refreshIntervalId1;
 	   var refreshIntervalId2;
-	   numberMessages = 0;
+	   WeHaveMessages = false;
 	   sessionWebChat = false;
 	   
 	   refreshIntervalId1 = setInterval(function(){
@@ -214,7 +190,7 @@
 	  
 	  
    var sessionWebChat = false;
-   var numberMessages = 0;
+   var WeHaveMessages = false;
    startMonitoring();
    
   </script>
