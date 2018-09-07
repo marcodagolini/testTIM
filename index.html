@@ -74,7 +74,11 @@
 	  } else{
 		  alert("We do NOT have a session!!");
 	  }
-	  alert("We have " + numberMessages + " messages");
+	  if(WeHaveMessages){
+		  alert("We have messages!!");
+	  } else{
+		  alert("We do NOT have messages!!");
+	  }
 
   }
 	  
@@ -106,6 +110,7 @@
 				   consumerMessages = document.getElementsByClassName("lp_visitor");
 				   if(consumerMessages){
 					   clearInterval(refreshIntervalId2);
+					   console.log("we have messages!");
 					   WeHaveMessages = true;
 				   }
 			   }, 1000);   
