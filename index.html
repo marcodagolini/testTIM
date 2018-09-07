@@ -108,7 +108,7 @@
 			   clearInterval(refreshIntervalId1);
 			   refreshIntervalId2 = setInterval(function(){
 				   consumerMessages = document.getElementsByClassName("lp_visitor");
-				   if(consumerMessages){
+				   if(consumerMessages.length > 0){
 					   clearInterval(refreshIntervalId2);
 					   console.log("we have messages!");
 					   WeHaveMessages = true;
