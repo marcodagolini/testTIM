@@ -108,12 +108,14 @@
 		   if(myClose){
 			   clearInterval(refreshIntervalId1);
 			   $('.lp_close').click(function(){
-				   var xyz = document.getElementsByClassName("lp_close");
-				   if(xyz){
-					   console.log("conversation started");
-				   } else{
-					   console.log("conversation not started");
-				   }
+				   setTimeout(function(){
+				   	var xyz = document.getElementsByClassName("lp_close");
+				   	if(xyz){
+					   	console.log("conversation started");
+				   	} else{
+					   	console.log("conversation not started");
+				   	}
+				   }, 1000);
 				   console.log("close clicked");
 				   startMonitoring();
 			   });
