@@ -91,12 +91,12 @@
    
    function ButtonClicked(){
 	   console.log("inside second function");
-	   var refreshIntervalId = setInterval(function(){
+	   var refreshIntervalId1 = setInterval(function(){
 		   console.log("inside third function");
 		   var myEle = document.getElementsByClassName("lp_close")[0];
 		   if(myEle){
-			   clearInterval(refreshIntervalId);
-			   $('.LPMcontainer').click(function(){
+			   clearInterval(refreshIntervalId1);
+			   $('.lp_close').click(function(){
 				   console.log("close clicked");
 				   MyFunction2();
 			   });
