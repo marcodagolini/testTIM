@@ -108,6 +108,12 @@
 		   if(myClose){
 			   clearInterval(refreshIntervalId1);
 			   $('.lp_close').click(function(){
+				   var xyz = document.getElementsByClassName("lp_close");
+				   if(xyz){
+					   console.log("conversation started");
+				   } else{
+					   console.log("conversation not started");
+				   }
 				   console.log("close clicked");
 				   startMonitoring();
 			   });
@@ -154,6 +160,7 @@
 			   $('.LPMcontainer').click(function(){
 				   console.log("button clicked");
 				   sessionWebChat = true;
+				   numberMessages = 0;
 				   ButtonClicked();
 			   });
 		   }
