@@ -69,7 +69,7 @@
   
   <script>
 	  
-	 var firstcheck = false; 
+
 
   
   function MyFunction2(){
@@ -93,7 +93,7 @@
 	   console.log("inside second function");
 	   var refreshIntervalId = setInterval(function(){
 		   console.log("inside third function");
-		   var myEle = document.getElementById("txt_5296250");
+		   var myEle = document.getElementsByClassName("lp_close")[0];
 		   if(myEle){
 			   clearInterval(refreshIntervalId);
 			   MyFunction2();
