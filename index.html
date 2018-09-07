@@ -104,12 +104,19 @@
    
    
    var refreshIntervalId = setInterval(function(){
-     console.log("inside first function");
-     $('.LPMcontainer').click(function(){
-        console.log("hooray");
-        clearInterval(refreshIntervalId);
-        MyFunction();
-     });
+	   console.log("inside first function");
+	   var myEle = document.getElementsByClassName("LPMcontainer")[0]; // inserire il corretto valore dell’ID del bottone di conferma dell’ordine
+	   if(myEle){
+		   console.log("button presented");
+		   clearInterval(refreshIntervalId);
+		   
+	   }
+	   
+     // $('.LPMcontainer').click(function(){
+        // console.log("hooray");
+        // clearInterval(refreshIntervalId);
+        // MyFunction();
+     // });
     
    } , 500);
    
