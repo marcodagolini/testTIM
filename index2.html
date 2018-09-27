@@ -187,71 +187,67 @@ $(document).ready(function(){
 				}
 			}
 		}, 3000);
-
-
-
+		
 //*********
 //this section below tracks the visitor errors coming from empty (forgotten) fields after the click to go to the next page
 //the errors could be visible or not, that's why i'm checking if the value is visible or not
-//*********
+//*********		
+		
 
-
-
-$(".form-submit").click(function(){
-
-setTimeout(function(){
-$(".ti_errori").each(function() {
-if ($(this).is(":visible") == true) {
-console.log("click");
-var errorField = $(this);
-var stringa = errorField[0].innerHTML;
-if (stringa !== null) {
-var error_code;
-var error_message;
-if (stringa.includes("CODICE FISCALE")){
-error_code = "cod_fisc";
-error_message = "Codice Fiscale dimenticato";
-}
-else if (stringa.includes("PREFISSO")){
-error_code = "prefisso_tel";
-error_message = "Prefisso dimenticato";
-}
-else if ((stringa.includes("NUMERO non"))||(stringa.includes("NUMERO \xE8"))){
-error_code = "numero_tel";
-error_message = "NumTelefono dimenticato";
-}
-else if (stringa.includes("INDIRIZZO")){
-error_code = "Indirizzo";
-error_message = "Indirizzo dimenticato";
-}
-else if (stringa.includes("NUMERO CIVICO")){
-error_code = "Civico";
-error_message = "Civico dimenticato";
-}
-else if (stringa.includes("PROVINCIA di nascita")){
-error_code = "Provincia";
-error_message = "Provincia dimenticata";
-}
-else if (stringa.includes("COMUNE di nascita")){
-error_code = "Comune";
-error_message = "Comune dimenticato";
-}
-else if (stringa.includes("CAP")){
-error_code = "CAP";
-error_message = "CAP dimenticato";
-}
-else if (stringa.includes("Operatore")){
-error_code = "Operatore";
-error_message = "Operatore dimenticato";
-}
-else if (stringa.includes("MIGRAZIONE")){
-error_code = "Migrazione";
-error_message = "CodMigraz dimenticato";
-}
-else if (stringa.includes("SESSO")){
-error_code = "Sesso";
-error_message = "Sesso dimenticato";
-}
+		$(".form-submit").click(function(){
+			setTimeout(function(){
+				$(".ti_errori").each(function() {
+					if ($(this).is(":visible") == true) {
+						console.log("click");
+						var errorField = $(this);
+						var stringa = errorField[0].innerHTML;
+						if (stringa !== null) {
+							var error_code;
+							var error_message;
+							if (stringa.includes("CODICE FISCALE")){
+								error_code = "cod_fisc";
+								error_message = "Codice Fiscale dimenticato";
+							}
+							else if (stringa.includes("PREFISSO")){
+								error_code = "prefisso_tel";
+								error_message = "Prefisso dimenticato";
+							}
+							else if ((stringa.includes("NUMERO non"))||(stringa.includes("NUMERO \xE8"))){
+								error_code = "numero_tel";
+								error_message = "NumTelefono dimenticato";
+							}
+							else if (stringa.includes("INDIRIZZO")){
+								error_code = "Indirizzo";
+								error_message = "Indirizzo dimenticato";
+							}
+							else if (stringa.includes("NUMERO CIVICO")){
+								error_code = "Civico";
+								error_message = "Civico dimenticato";
+							}
+							else if (stringa.includes("PROVINCIA di nascita")){
+								error_code = "Provincia";
+								error_message = "Provincia dimenticata";
+							}
+							else if (stringa.includes("COMUNE di nascita")){
+								error_code = "Comune";
+								error_message = "Comune dimenticato";
+							}
+							else if (stringa.includes("CAP")){
+								error_code = "CAP";
+								error_message = "CAP dimenticato";
+							}
+							else if (stringa.includes("Operatore")){
+								error_code = "Operatore";
+								error_message = "Operatore dimenticato";
+							}
+							else if (stringa.includes("MIGRAZIONE")){
+								error_code = "Migrazione";
+								error_message = "CodMigraz dimenticato";
+							}
+							else if (stringa.includes("SESSO")){
+								error_code = "Sesso";
+								error_message = "Sesso dimenticato";
+							}
 else if (stringa.includes("tipo del tuo DOCUMENTO")){
 error_code = "Tipo Documento";
 error_message = "Tipo Documento dimenticato";
