@@ -323,72 +323,58 @@ $(document).ready(function(){
 			}, 1000);
 		});
 
-
-
-
+		
+		
 //*********
 //this section below tracks the 4th page
-//*********
-
-
-
-$(".submitStep").click(function(){
-setTimeout(function(){
-$(".ti_errori").each(function() {
-if ($(this).is(":visible") == true) {
-console.log("click");
-var errorField = $(this);
-var stringa = errorField[0].innerHTML;
-if (stringa !== null) {
-var error_code;
-var error_message;
-
-
-if (stringa.includes("L'accettazione delle CONDIZIONI CONTRATTUALI è obbligatoria")){
-error_code = "Condizioni Contrattuali";
-error_message = "Accettare Condizioni Contrattuali";
-}
-else if (stringa.includes("È obbligatorio esprimere o non esprimere il CONSENSO AL TRATT")){
-error_code = "Trattamento Dati";
-error_message = "Trattamento Dati dimenticato";
-}
-else if (stringa.includes("Verificare il codice iban")){
-error_code = "Codice IBAN";
-error_message = "Codice IBAN Mancante";
-}
-else if (stringa.includes("esprimere il DIRITTO DI RIPENSAMENTO")){
-error_code = "Diritto Ripensamento";
-error_message = "Diritto Ripensamento Mancante";
-}
-
-
-if(error_message !== undefined){
-console.log(error_message + "  <-->  " + error_code);
-lpTag.sdes = lpTag.sdes || [];
-lpTag.sdes.push(
-{
-"type": "error", //MANDATORY
-"error": {
-"message": error_message, // THE ERROR MESSAGE
-"code": error_code // THE ERROR CODE
-}
-});
-} 
-}
-}
-});
-}, 1000);
-});
-}, 10000);
-
-
-//*********
-//this section below tracks the complete fields but incorrect
-//*********
-
-
-
-
+//*********		
+		
+		
+		
+		$(".submitStep").click(function(){
+			setTimeout(function(){
+				$(".ti_errori").each(function() {
+					if ($(this).is(":visible") == true) {
+						console.log("click");
+						var errorField = $(this);
+						var stringa = errorField[0].innerHTML;
+						if (stringa !== null) {
+							var error_code;
+							var error_message;
+							if (stringa.includes("L'accettazione delle CONDIZIONI CONTRATTUALI è obbligatoria")){
+								error_code = "Condizioni Contrattuali";
+								error_message = "Accettare Condizioni Contrattuali";
+							}
+							else if (stringa.includes("È obbligatorio esprimere o non esprimere il CONSENSO AL TRATT")){
+								error_code = "Trattamento Dati";
+								error_message = "Trattamento Dati dimenticato";
+							}
+							else if (stringa.includes("Verificare il codice iban")){
+								error_code = "Codice IBAN";
+								error_message = "Codice IBAN Mancante";
+							}
+							else if (stringa.includes("esprimere il DIRITTO DI RIPENSAMENTO")){
+								error_code = "Diritto Ripensamento";
+								error_message = "Diritto Ripensamento Mancante";
+							}
+							if(error_message !== undefined){
+								console.log(error_message + "  <-->  " + error_code);
+								lpTag.sdes = lpTag.sdes || [];
+								lpTag.sdes.push(
+									{
+										"type": "error", //MANDATORY
+										"error": {
+											"message": error_message, // THE ERROR MESSAGE
+											"code": error_code // THE ERROR CODE
+										}
+									});
+							} 
+						}
+					}
+				});
+			}, 1000);
+		});
+	}, 10000);
 });
 
 </script>
