@@ -248,81 +248,80 @@ $(document).ready(function(){
 								error_code = "Sesso";
 								error_message = "Sesso dimenticato";
 							}
-else if (stringa.includes("tipo del tuo DOCUMENTO")){
-error_code = "Tipo Documento";
-error_message = "Tipo Documento dimenticato";
-}
-else if (stringa.includes("numero del tuo DOCUMENTO")){
-error_code = "Numero Documento";
-error_message = "Numero Documento dimenticato";
-}
-else if (stringa.includes("Numero del DOCUMENTO non vali")){
-error_code = "Numero Documento non valido";
-error_message = "Numero Documento non valido";
-}
-else if (stringa.includes("ente che ha rilasciato il tuo DOCUMENTO")){
-error_code = "Ente Documento";
-error_message = "Ente Documento dimenticato";
-}
-else if (stringa.includes("PROVINCIA che ha rilasciato il tuo DOCUMENTO")){
-error_code = "Provincia Documento";
-error_message = "Provincia Documento dimenticato";
-}
-else if (stringa.includes("COMUNE che ha rilasciato il tuo DOCUMENTO")){
-error_code = "Comune Documento";
-error_message = "Comune Documento dimenticato";
-}
-else if (stringa.includes("Il NOME è obb")){
-error_code = "Nome";
-error_message = "Nome dimenticato";
-}
-else if (stringa.includes("COGNOME")){
-error_code = "Cognome";
-error_message = "Cognome dimenticato";
-}
-else if (stringa.includes("nascita")){
-error_code = "Data Nascita";
-error_message = "Data nascita dimenticata";
-}
-else if (stringa.includes("rilascio")){
-error_code = "Data Rilascio";
-error_message = "Data rilascio dimenticata";
-}
-else if (stringa.includes("scadenza")){
-error_code = "Data Scadenza";
-error_message = "Data scadenza dimenticata";
-}
-else if (stringa.includes("MAIL")){
-error_code = "E-Mail dimenticata";
-error_message = "E-Mail dimenticata";
-}
-else if (stringa.includes("dati anagrafici inseriti non sono coerenti")){
-error_code = "Anagrafica incoerente";
-error_message = "Anagrafica incoerente";
-}
-else if (stringa.includes("recapito")){
-error_code = "Recapito Errato";
-error_message = "Recapito Errato";
-}
+							else if (stringa.includes("tipo del tuo DOCUMENTO")){
+								error_code = "Tipo Documento";
+								error_message = "Tipo Documento dimenticato";
+							}
+							else if (stringa.includes("numero del tuo DOCUMENTO")){
+								error_code = "Numero Documento";
+								error_message = "Numero Documento dimenticato";
+							}
+							else if (stringa.includes("Numero del DOCUMENTO non vali")){
+								error_code = "Numero Documento non valido";
+								error_message = "Numero Documento non valido";
+							}
+							else if (stringa.includes("ente che ha rilasciato il tuo DOCUMENTO")){
+								error_code = "Ente Documento";
+								error_message = "Ente Documento dimenticato";
+							}
+							else if (stringa.includes("PROVINCIA che ha rilasciato il tuo DOCUMENTO")){
+								error_code = "Provincia Documento";
+								error_message = "Provincia Documento dimenticato";
+							}
+							else if (stringa.includes("COMUNE che ha rilasciato il tuo DOCUMENTO")){
+								error_code = "Comune Documento";
+								error_message = "Comune Documento dimenticato";
+							}
+							else if (stringa.includes("Il NOME è obb")){
+								error_code = "Nome";
+								error_message = "Nome dimenticato";
+							}
+							else if (stringa.includes("COGNOME")){
+								error_code = "Cognome";
+								error_message = "Cognome dimenticato";
+							}
+							else if (stringa.includes("nascita")){
+								error_code = "Data Nascita";
+								error_message = "Data nascita dimenticata";
+							}
+							else if (stringa.includes("rilascio")){
+								error_code = "Data Rilascio";
+								error_message = "Data rilascio dimenticata";
+							}
+							else if (stringa.includes("scadenza")){
+								error_code = "Data Scadenza";
+								error_message = "Data scadenza dimenticata";
+							}
+							else if (stringa.includes("MAIL")){
+								error_code = "E-Mail dimenticata";
+								error_message = "E-Mail dimenticata";
+							}
+							else if (stringa.includes("dati anagrafici inseriti non sono coerenti")){
+								error_code = "Anagrafica incoerente";
+								error_message = "Anagrafica incoerente";
+							}
+							else if (stringa.includes("recapito")){
+								error_code = "Recapito Errato";
+								error_message = "Recapito Errato";
+							}
+							if(error_message !== undefined){
+								console.log(error_message + "  <-->  " + error_code);
+								lpTag.sdes = lpTag.sdes || [];
+								lpTag.sdes.push(
+									{
+										"type": "error", //MANDATORY
+										"error": {
+											"message": error_message, // THE ERROR MESSAGE
+											"code": error_code // THE ERROR CODE
+										}
+									});
+							} 
 
-if(error_message !== undefined){
-console.log(error_message + "  <-->  " + error_code);
-lpTag.sdes = lpTag.sdes || [];
-lpTag.sdes.push(
-{
-"type": "error", //MANDATORY
-"error": {
-"message": error_message, // THE ERROR MESSAGE
-"code": error_code // THE ERROR CODE
-}
-});
-} 
-
-}
-}
-});
-}, 1000);
-});
+						}
+					}
+				});
+			}, 1000);
+		});
 
 
 
