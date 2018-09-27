@@ -134,106 +134,59 @@ function ButtonClicked(){
 //*********
 
 $(document).ready(function(){
-
-setTimeout(function(){
-
-console.log("let's go");
-startMonitoring();
-
-lpTag.sdes = lpTag.sdes||[];
-lpTag.sdes.push(
-   {
-        "type": "personal",  //MANDATORY
-            "personal": {
-            "firstname": "John",  // FIRST NAME
-            "lastname": "Doe",  // SURNAME
-            "age": {
-               "age": 34,  // AGE AS INTEGER
-               "year": 1980,  // BIRTH YEAR
-               "month": 4,  // BIRTH MONTH
-               "day": 15  // BIRTH DAY
-           },
-            "contacts": [{
-               "email": "myname@example.com",  // EMAIL
-               "phone": "+1 212-788-8877"  // PHONE NUMBER
-           }],
-            "gender": "MALE",  // MALE, FEMALE, OTHER
-            "language": "en-US",  // LANGUAGE 
-            "company": "company"  // VISITOR COMPANY NAME
-        }
-   }
-);
-
-
-
-setTimeout(function(){
-
-
-var wt8si = $('#wt_8si').length;
-var wt8no = $('#wt_8no').length;
-var editbe2 =  $('#edit-b-e2').length;
-var editee30 = $('#edit-e-e30').length;
-var editinputdomiciliazioneno = $('#edit-input-domiciliazione-no').length;
-var bannerriepilogo= $('#banner-riepilogo').length;
-var edite2timdigitalmigrazione = $('#edit-e2-timdigital-migrazione').length;
-
-
-
-var CurrentLocation = window.location.href;
-
-
+	setTimeout(function(){
+		startMonitoring();
+		setTimeout(function(){
+			var wt8si = $('#wt_8si').length;
+			var wt8no = $('#wt_8no').length;
+			var editbe2 =  $('#edit-b-e2').length;
+			var editee30 = $('#edit-e-e30').length;
+			var editinputdomiciliazioneno = $('#edit-input-domiciliazione-no').length;
+			var bannerriepilogo= $('#banner-riepilogo').length;
+			var edite2timdigitalmigrazione = $('#edit-e2-timdigital-migrazione').length;
+			var CurrentLocation = window.location.href;
+			
 
 //*********
 //Funnel Nuovo Cliente
-//*********
-
-if (wt8si) {
-lpTag.newPage(CurrentLocation + "/Prospect/paginagenericaFunnel", {section: "Prospect"});
-console.log("prima pagina");
-}
-
-if (editbe2) {
-    lpTag.newPage(CurrentLocation + "/Nuovo/primapaginaFunnel", {section: "Nuovo-1"});
-console.log("seconda pagina");
-}
-
-if (editee30) {
-lpTag.newPage(CurrentLocation + "/Nuovo/secondapaginaFunnel", {section: "Nuovo-2"});
-console.log("terza pagina");
-}
-
-if (editinputdomiciliazioneno) {
-lpTag.newPage(CurrentLocation + "/Nuovo/terzapaginaFunnel", {section: "Nuovo-3"});
-console.log("quarta pagina");
-}
-
-if (bannerriepilogo) {
-lpTag.newPage(CurrentLocation + "/Nuovo/EndFunnel", {section: "Nuovo-4"});
-console.log("quinta pagina");
-
-if(WeHaveMessages === true){
-console.log("convertito");
-var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=590939&ADFPageName=3_Converion_Live_Person&ADFdivider=|" width="1" height="1" alt="" /></p>';
-$("body").append(txt);
-lpTag.sdes = lpTag.sdes||[];
-lpTag.sdes.push(
-   {
-        "type": "ctmrinfo",  //MANDATORY
-        "info": {
-           "cstatus": "converted"  //CUSTOMER LIFECYCLE STATUS. FROM PRE-DEFINED LIST
-          
-        }
-   }
-);
-}else{
-   console.log("nulla");
-}
-
-}
-
-
-
-}, 3000);
+//*********			
+			
+			
+			if (wt8si) {
+				lpTag.newPage(CurrentLocation + "/Prospect/paginagenericaFunnel", {section: "Prospect"});
+				console.log("prima pagina");
+			}
+			if (editbe2) {
+				lpTag.newPage(CurrentLocation + "/Nuovo/primapaginaFunnel", {section: "Nuovo-1"});
+				console.log("seconda pagina");
+			}
+			if (editee30) {
+				lpTag.newPage(CurrentLocation + "/Nuovo/secondapaginaFunnel", {section: "Nuovo-2"});
+				console.log("terza pagina");
+			}
+			if (editinputdomiciliazioneno) {
+				lpTag.newPage(CurrentLocation + "/Nuovo/terzapaginaFunnel", {section: "Nuovo-3"});
+				console.log("quarta pagina");
+			}
+			if (bannerriepilogo) {
+				lpTag.newPage(CurrentLocation + "/Nuovo/EndFunnel", {section: "Nuovo-4"});
+				console.log("quinta pagina");
+				if(WeHaveMessages === true){
+					console.log("convertito");
+					var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=590939&ADFPageName=3_Converion_Live_Person&ADFdivider=|" width="1" height="1" alt="" /></p>';
+					$("body").append(txt);
+					lpTag.sdes = lpTag.sdes||[];
+					lpTag.sdes.push(
+						{
+							"type": "ctmrinfo",  //MANDATORY
+							"info": {
+								"cstatus": "converted"  //CUSTOMER LIFECYCLE STATUS. FROM PRE-DEFINED LIST
+							}
+						}
+					);
+				}
+			}
+		}, 3000);
 
 
 
