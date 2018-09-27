@@ -45,7 +45,7 @@ function ButtonClicked(){
 				setTimeout(function(){
 					var xyz = document.getElementsByClassName("lp_close");
 					if(xyz.length > 0){
-					   	console.log("conversation started");
+						console.log("conversation started");
 						clearInterval(refreshIntervalId2);
 						refreshIntervalId3 = setInterval(function(){
 							myRefuse = document.getElementsByClassName("lp_cancel_button");
@@ -86,7 +86,6 @@ function ButtonClicked(){
 	   var refreshIntervalId2;
 	   
 	   refreshIntervalId1 = setInterval(function(){
-		   console.log("inside first function");
 		   var myEle = document.getElementsByClassName("LPMcloseButton")[0];
 		   if(myEle){
 			   console.log("button presented");
@@ -94,8 +93,8 @@ function ButtonClicked(){
 			   clearInterval(refreshIntervalId2);
 			   $('.LPMcontainer').click(function(){
 				   console.log("button clicked");
-                                    var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=590939&ADFPageName=2_Open_Live_Person&ADFdivider=|" width="1" height="1" alt="" /></p>';
-                                    $("body").append(txt);
+				   var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=590939&ADFPageName=2_Open_Live_Person&ADFdivider=|" width="1" height="1" alt="" /></p>';
+				   $("body").append(txt);
 				   sessionWebChat = true;
 				   ButtonClicked();
 			   });
