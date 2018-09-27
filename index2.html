@@ -1,0 +1,449 @@
+<script src="https://track.adform.net/serving/scripts/trackpoint/async/"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
+
+
+
+
+<script type="text/javascript">
+
+window._adftrack = Array.isArray(window._adftrack) ? window._adftrack : (window._adftrack ? [window._adftrack] : []);
+window._adftrack.push({
+        pm: 307530,
+        divider: encodeURIComponent('|'),
+        pagename: encodeURIComponent('Conversione_Liveperson')
+    });
+    
+    
+
+
+
+
+
+
+function ButtonClicked(){
+
+	   var refreshIntervalId1;
+	   var refreshIntervalId2;
+	   var refreshIntervalId3;
+	   var myClose;
+	   var mySend;
+	   var consumerMessages;
+	   var myRefuse;
+	   
+	   refreshIntervalId1 = setInterval(function(){
+		   myClose = document.getElementsByClassName("lp_close")[0];
+		   if(myClose){
+			   clearInterval(refreshIntervalId1);
+			   refreshIntervalId2 = setInterval(function(){
+				   consumerMessages = document.getElementsByClassName("lp_visitor");
+				   if(consumerMessages.length > 0){
+					   clearInterval(refreshIntervalId2);
+					   console.log("we have messages!");
+					   WeHaveMessages = true;
+				   }
+			   }, 1000);   
+			   $('.lp_close').click(function(){
+				   setTimeout(function(){
+				   	var xyz = document.getElementsByClassName("lp_close");
+				   	if(xyz.length > 0){
+					   	console.log("conversation started");
+						clearInterval(refreshIntervalId2);
+						refreshIntervalId3 = setInterval(function(){
+							myRefuse = document.getElementsByClassName("lp_cancel_button");
+							if(myRefuse){
+								clearInterval(refreshIntervalId3);
+								$('.p_cancel_button').click(function(){
+									refreshIntervalId2 = setInterval(function(){
+										consumerMessages = document.getElementsByClassName("lp_visitor");
+										if(consumerMessages.length > 0){
+											clearInterval(refreshIntervalId2);
+											console.log("we have messages!");
+											WeHaveMessages = true;
+										}
+									}, 1000);
+									startMonitoring();
+								});
+							}
+						}, 100);
+				   	} else{
+					   	console.log("conversation not started");
+						startMonitoring();
+				   	}
+				   }, 1000);
+				   console.log("close clicked");
+				   
+			   });
+		   }
+	   }, 100);
+	   
+   }
+      
+/****
+      funzione per cominciare il monitoring del pulsante e di sessioni eventualmente gia'aperte
+****/
+   function startMonitoring(){
+	   
+	   var refreshIntervalId1;
+	   var refreshIntervalId2;
+	   
+	   refreshIntervalId1 = setInterval(function(){
+		   console.log("inside first function");
+		   var myEle = document.getElementsByClassName("LPMcloseButton")[0];
+		   if(myEle){
+			   console.log("button presented");
+			   clearInterval(refreshIntervalId1);
+			   clearInterval(refreshIntervalId2);
+			   $('.LPMcontainer').click(function(){
+				   console.log("button clicked");
+                                    var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=590939&ADFPageName=2_Open_Live_Person&ADFdivider=|" width="1" height="1" alt="" /></p>';
+                                    $("body").append(txt);
+				   sessionWebChat = true;
+				   ButtonClicked();
+			   });
+		   }
+	   }, 500);
+	   
+	   refreshIntervalId2 = setInterval(function(){
+		   console.log("inside first function");
+		   var myEle = document.getElementsByClassName("lp_close")[0];
+		   if(myEle){
+			   console.log("button presented");
+			   clearInterval(refreshIntervalId1);
+			   clearInterval(refreshIntervalId2);
+			   console.log("chat already open");
+			   sessionWebChat = true;
+			   ButtonClicked();	   
+		   }
+	   }, 500);
+	   	
+	   
+	   
+   }
+	  
+	  
+   var sessionWebChat = false;
+   var WeHaveMessages = false;
+
+
+
+
+
+
+//*********
+//this section below tracks the page of the funnel visited.
+//the Timeout function is just to be sure the page is already starting to load some object, it should be useless
+//the funnel is not a pure SPA, that's why i can't track it with events, i need to use as well to check if some elements are presented or not
+//*********
+
+$(document).ready(function(){
+
+setTimeout(function(){
+
+console.log("let's go");
+startMonitoring();
+
+lpTag.sdes = lpTag.sdes||[];
+lpTag.sdes.push(
+   {
+        "type": "personal",  //MANDATORY
+            "personal": {
+            "firstname": "John",  // FIRST NAME
+            "lastname": "Doe",  // SURNAME
+            "age": {
+               "age": 34,  // AGE AS INTEGER
+               "year": 1980,  // BIRTH YEAR
+               "month": 4,  // BIRTH MONTH
+               "day": 15  // BIRTH DAY
+           },
+            "contacts": [{
+               "email": "myname@example.com",  // EMAIL
+               "phone": "+1 212-788-8877"  // PHONE NUMBER
+           }],
+            "gender": "MALE",  // MALE, FEMALE, OTHER
+            "language": "en-US",  // LANGUAGE 
+            "company": "company"  // VISITOR COMPANY NAME
+        }
+   }
+);
+
+
+
+setTimeout(function(){
+
+
+var wt8si = $('#wt_8si').length;
+var wt8no = $('#wt_8no').length;
+var editbe2 =  $('#edit-b-e2').length;
+var editee30 = $('#edit-e-e30').length;
+var editinputdomiciliazioneno = $('#edit-input-domiciliazione-no').length;
+var bannerriepilogo= $('#banner-riepilogo').length;
+var edite2timdigitalmigrazione = $('#edit-e2-timdigital-migrazione').length;
+
+
+
+var CurrentLocation = window.location.href;
+
+
+
+//*********
+//Funnel Nuovo Cliente
+//*********
+
+if (wt8si) {
+lpTag.newPage(CurrentLocation + "/Prospect/paginagenericaFunnel", {section: "Prospect"});
+console.log("prima pagina");
+}
+
+if (editbe2) {
+    lpTag.newPage(CurrentLocation + "/Nuovo/primapaginaFunnel", {section: "Nuovo-1"});
+console.log("seconda pagina");
+}
+
+if (editee30) {
+lpTag.newPage(CurrentLocation + "/Nuovo/secondapaginaFunnel", {section: "Nuovo-2"});
+console.log("terza pagina");
+}
+
+if (editinputdomiciliazioneno) {
+lpTag.newPage(CurrentLocation + "/Nuovo/terzapaginaFunnel", {section: "Nuovo-3"});
+console.log("quarta pagina");
+}
+
+if (bannerriepilogo) {
+lpTag.newPage(CurrentLocation + "/Nuovo/EndFunnel", {section: "Nuovo-4"});
+console.log("quinta pagina");
+
+if(WeHaveMessages === true){
+console.log("convertito");
+var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=590939&ADFPageName=3_Converion_Live_Person&ADFdivider=|" width="1" height="1" alt="" /></p>';
+$("body").append(txt);
+lpTag.sdes = lpTag.sdes||[];
+lpTag.sdes.push(
+   {
+        "type": "ctmrinfo",  //MANDATORY
+        "info": {
+           "cstatus": "converted"  //CUSTOMER LIFECYCLE STATUS. FROM PRE-DEFINED LIST
+          
+        }
+   }
+);
+}else{
+   console.log("nulla");
+}
+
+}
+
+
+
+}, 3000);
+
+
+
+//*********
+//this section below tracks the visitor errors coming from empty (forgotten) fields after the click to go to the next page
+//the errors could be visible or not, that's why i'm checking if the value is visible or not
+//*********
+
+
+
+$(".form-submit").click(function(){
+
+setTimeout(function(){
+$(".ti_errori").each(function() {
+if ($(this).is(":visible") == true) {
+console.log("click");
+var errorField = $(this);
+var stringa = errorField[0].innerHTML;
+if (stringa !== null) {
+var error_code;
+var error_message;
+if (stringa.includes("CODICE FISCALE")){
+error_code = "cod_fisc";
+error_message = "Codice Fiscale dimenticato";
+}
+else if (stringa.includes("PREFISSO")){
+error_code = "prefisso_tel";
+error_message = "Prefisso dimenticato";
+}
+else if ((stringa.includes("NUMERO non"))||(stringa.includes("NUMERO \xE8"))){
+error_code = "numero_tel";
+error_message = "NumTelefono dimenticato";
+}
+else if (stringa.includes("INDIRIZZO")){
+error_code = "Indirizzo";
+error_message = "Indirizzo dimenticato";
+}
+else if (stringa.includes("NUMERO CIVICO")){
+error_code = "Civico";
+error_message = "Civico dimenticato";
+}
+else if (stringa.includes("PROVINCIA di nascita")){
+error_code = "Provincia";
+error_message = "Provincia dimenticata";
+}
+else if (stringa.includes("COMUNE di nascita")){
+error_code = "Comune";
+error_message = "Comune dimenticato";
+}
+else if (stringa.includes("CAP")){
+error_code = "CAP";
+error_message = "CAP dimenticato";
+}
+else if (stringa.includes("Operatore")){
+error_code = "Operatore";
+error_message = "Operatore dimenticato";
+}
+else if (stringa.includes("MIGRAZIONE")){
+error_code = "Migrazione";
+error_message = "CodMigraz dimenticato";
+}
+else if (stringa.includes("SESSO")){
+error_code = "Sesso";
+error_message = "Sesso dimenticato";
+}
+else if (stringa.includes("tipo del tuo DOCUMENTO")){
+error_code = "Tipo Documento";
+error_message = "Tipo Documento dimenticato";
+}
+else if (stringa.includes("numero del tuo DOCUMENTO")){
+error_code = "Numero Documento";
+error_message = "Numero Documento dimenticato";
+}
+else if (stringa.includes("Numero del DOCUMENTO non vali")){
+error_code = "Numero Documento non valido";
+error_message = "Numero Documento non valido";
+}
+else if (stringa.includes("ente che ha rilasciato il tuo DOCUMENTO")){
+error_code = "Ente Documento";
+error_message = "Ente Documento dimenticato";
+}
+else if (stringa.includes("PROVINCIA che ha rilasciato il tuo DOCUMENTO")){
+error_code = "Provincia Documento";
+error_message = "Provincia Documento dimenticato";
+}
+else if (stringa.includes("COMUNE che ha rilasciato il tuo DOCUMENTO")){
+error_code = "Comune Documento";
+error_message = "Comune Documento dimenticato";
+}
+else if (stringa.includes("Il NOME è obb")){
+error_code = "Nome";
+error_message = "Nome dimenticato";
+}
+else if (stringa.includes("COGNOME")){
+error_code = "Cognome";
+error_message = "Cognome dimenticato";
+}
+else if (stringa.includes("nascita")){
+error_code = "Data Nascita";
+error_message = "Data nascita dimenticata";
+}
+else if (stringa.includes("rilascio")){
+error_code = "Data Rilascio";
+error_message = "Data rilascio dimenticata";
+}
+else if (stringa.includes("scadenza")){
+error_code = "Data Scadenza";
+error_message = "Data scadenza dimenticata";
+}
+else if (stringa.includes("MAIL")){
+error_code = "E-Mail dimenticata";
+error_message = "E-Mail dimenticata";
+}
+else if (stringa.includes("dati anagrafici inseriti non sono coerenti")){
+error_code = "Anagrafica incoerente";
+error_message = "Anagrafica incoerente";
+}
+else if (stringa.includes("recapito")){
+error_code = "Recapito Errato";
+error_message = "Recapito Errato";
+}
+
+if(error_message !== undefined){
+console.log(error_message + "  <-->  " + error_code);
+lpTag.sdes = lpTag.sdes || [];
+lpTag.sdes.push(
+{
+"type": "error", //MANDATORY
+"error": {
+"message": error_message, // THE ERROR MESSAGE
+"code": error_code // THE ERROR CODE
+}
+});
+} 
+
+}
+}
+});
+}, 1000);
+});
+
+
+
+
+//*********
+//this section below tracks the 4th page
+//*********
+
+
+
+$(".submitStep").click(function(){
+setTimeout(function(){
+$(".ti_errori").each(function() {
+if ($(this).is(":visible") == true) {
+console.log("click");
+var errorField = $(this);
+var stringa = errorField[0].innerHTML;
+if (stringa !== null) {
+var error_code;
+var error_message;
+
+
+if (stringa.includes("L'accettazione delle CONDIZIONI CONTRATTUALI è obbligatoria")){
+error_code = "Condizioni Contrattuali";
+error_message = "Accettare Condizioni Contrattuali";
+}
+else if (stringa.includes("È obbligatorio esprimere o non esprimere il CONSENSO AL TRATT")){
+error_code = "Trattamento Dati";
+error_message = "Trattamento Dati dimenticato";
+}
+else if (stringa.includes("Verificare il codice iban")){
+error_code = "Codice IBAN";
+error_message = "Codice IBAN Mancante";
+}
+else if (stringa.includes("esprimere il DIRITTO DI RIPENSAMENTO")){
+error_code = "Diritto Ripensamento";
+error_message = "Diritto Ripensamento Mancante";
+}
+
+
+if(error_message !== undefined){
+console.log(error_message + "  <-->  " + error_code);
+lpTag.sdes = lpTag.sdes || [];
+lpTag.sdes.push(
+{
+"type": "error", //MANDATORY
+"error": {
+"message": error_message, // THE ERROR MESSAGE
+"code": error_code // THE ERROR CODE
+}
+});
+} 
+}
+}
+});
+}, 1000);
+});
+}, 10000);
+
+
+//*********
+//this section below tracks the complete fields but incorrect
+//*********
+
+
+
+
+});
+
+</script>
