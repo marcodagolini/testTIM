@@ -59,6 +59,13 @@
     height: 1px;
     margin: 0 auto;
 }
+	
+.zoomout {
+    transition: transform .2s; /* Animation */
+    width: 250px;
+    height: 253px;
+    margin: 0 auto;
+}
 
 
  .rotate {
@@ -141,7 +148,7 @@ lpTag.sdes.push(
 		   if(myEle){
 			   console.log("button presented");
 			   clearInterval(refreshIntervalId1);
-			   $(".LPMcontainer").addClass( "hidden" )
+			   $(".LPMcontainer").addClass( "zoomout" )
 			   
 
 		   }
