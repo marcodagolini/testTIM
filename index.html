@@ -1,10 +1,82 @@
 <html>
+	
+<style>
+
+.hidden {
+   visibility: hidden;
+}
+
+.effect2 {
+    margin-top: 25px;
+    font-size: 21px;
+    text-align: center;
+    animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+}
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+.zoom {
+    transition: transform .2s; /* Animation */
+    width: 250px;
+    height: 253px;
+    margin: 0 auto;
+}
+.zoom:hover {
+    transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+ .rotate {
+  border-radius: 50%;
+  -webkit-transition: -webkit-transform .8s ease-in-out;
+          transition:         transform .8s ease-in-out;
+}
+.rotate:hover {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+
+ </style>
+	
+	
  <head>
 	
 	
 	 
- 
- <script src="https://track.adform.net/serving/scripts/trackpoint/async/"></script>
+
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 
   
@@ -23,22 +95,54 @@
 
 
 
-	 <script type="text/javascript">
+	 <script>
+		 
+setTimeout(function(){
 
-    window._adftrack = Array.isArray(window._adftrack) ? window._adftrack : (window._adftrack ? [window._adftrack] : []);
-    window._adftrack.push({
-        pm: 307530,
-        divider: encodeURIComponent('|'),
-        pagename: encodeURIComponent('Conversione_Liveperson')
-    });
-    
+console.log("push");
 
-	    
-	setTimeout(function(){ 
-		alert("Appeso!");
-		var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=590939&ADFPageName=1_Start_Funnel_LivePerson&ADFdivider=|" width="1" height="1" alt="" /></p>';
-		$("body").append(txt);
-	}, 5000);
+lpTag.sdes = lpTag.sdes||[];
+lpTag.sdes.push(
+   {
+        "type": "personal",  //MANDATORY
+            "personal": {
+            "firstname": "John",  // FIRST NAME
+            "lastname": "Doe",  // SURNAME
+            "age": {
+               "age": 34,  // AGE AS INTEGER
+               "year": 1980,  // BIRTH YEAR
+               "month": 4,  // BIRTH MONTH
+               "day": 15  // BIRTH DAY
+           },
+            "contacts": [{
+               "email": "myname@example.com",  // EMAIL
+               "phone": "+1 212-788-8877"  // PHONE NUMBER
+           }],
+            "gender": "MALE",  // MALE, FEMALE, OTHER
+            "language": "en-US",  // LANGUAGE 
+            "company": "company"  // VISITOR COMPANY NAME
+        }
+   }
+);
+
+
+
+
+}, 10000);
+		 
+		 
+
+ var refreshIntervalId1 = setInterval(function(){
+		   var myEle = document.getElementsByClassName("LPMcontainer")[0];
+		   if(myEle){
+			   console.log("button presented");
+			   clearInterval(refreshIntervalId1);
+			   $(".LPMcontainer").addClass( "hidden" )
+			   
+
+		   }
+	   }, 500);
+
 	
 
     
