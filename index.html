@@ -6,6 +6,12 @@
 	
 	
 <style>
+	
+.move {
+   right:0px;
+   transform: translate(0,328px);
+   transition-duration: 3s;
+}
 
 .hidden {
    visibility: hidden;
@@ -153,7 +159,11 @@ lpTag.sdes.push(
 		   if(myEle){
 			   console.log("button presented");
 			   clearInterval(refreshIntervalId1);
-			   $(".LPMcontainer").addClass( "position" )
+			   $(".LPMcontainer").addClass( "position" );
+			   setTimeout(function(){
+				   console.log("translating");
+				   $(".LPMcontainer").addClass( "move" );
+			   }, 1000);
 			   
 
 		   }
