@@ -52,15 +52,21 @@
         opacity: 1;
     }
 }
+	
+.position {
+    position:absolute;
+    bottom:0;
+    right:0;
+}
 
 
-.zoom {
+.zoomout {
     width: 1px;
     height: 1px;
     margin: 0 auto;
 }
 	
-.zoomout {
+.zoom {
     transition: transform .2s; /* Animation */
     width: 250px;
     height: 253px;
@@ -148,7 +154,7 @@ lpTag.sdes.push(
 		   if(myEle){
 			   console.log("button presented");
 			   clearInterval(refreshIntervalId1);
-			   $(".LPMcontainer").addClass( "zoomout" )
+			   $(".LPMcontainer").addClass( "position" )
 			   
 
 		   }
