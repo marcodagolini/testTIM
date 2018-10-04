@@ -192,9 +192,10 @@ lpTag.sdes.push(
 				   $(".LPMcontainer").removeClass( "zoom" );
 				   
 				   $(".LPMcontainer").removeClass( "move" );
-				   setTimeout(function(){
-					   $(".LPMcontainer").addClass( "fix" );
-				   },1000);
+				   $(".LPMcontainer").attr('style', 'position:absolute !important');
+				   $(".LPMcontainer").attr('style', 'bottom:20px !important');
+				   $(".LPMcontainer").attr('style', 'right:20px !important');
+
 				   
 				   // $(".LPMcontainer").addClass( "beat" );
 			   }, 5000);
