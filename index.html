@@ -186,12 +186,14 @@ lpTag.sdes.push(
 				   console.log("translating");
 				   $(".LPMcontainer").addClass( "move" );
 			   }, 1000);
-			   setTimeout(function(){
+			   
 				   console.log("pulsing");
 				   $(".LPMcontainer").removeClass( "zoom" );
-				   $(".LPMcontainer").addClass( "fix" );
-				   $(".LPMcontainer").removeClass( "move" );
 				   
+				   $(".LPMcontainer").removeClass( "move" );
+				   setTimeout(function(){
+					   $(".LPMcontainer").addClass( "fix" );
+				   },10);
 				   
 				   // $(".LPMcontainer").addClass( "beat" );
 			   }, 5000);
