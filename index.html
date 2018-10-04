@@ -5,113 +5,8 @@
 <style>
 
 	
-@keyframes heartbeat
-{
-  94%
-  {
-    transform: scale( 1 );
-  }
-  97%
-  {
-    transform: scale( 1.02 );
-  }
-  100%
-  {
-    transform: scale( 1 );
-  }
-}
-	
-.beat
-{
-  animation: heartbeat 5s infinite;
-}
-
-	
-.move {
-   right:0px;
-   transform: translate(-349px, 0);
-   transition-duration: 2s;
-}
-
-.hidden {
-   visibility: hidden;
-}
-
-.effect2 {
-    margin-top: 25px;
-    font-size: 21px;
-    text-align: center;
-    animation: fadein 2s;
-    -moz-animation: fadein 2s; /* Firefox */
-    -webkit-animation: fadein 2s; /* Safari and Chrome */
-    -o-animation: fadein 2s; /* Opera */
-}
-@keyframes fadein {
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
-}
-@-moz-keyframes fadein { /* Firefox */
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
-}
-@-webkit-keyframes fadein { /* Safari and Chrome */
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
-}
-@-o-keyframes fadein { /* Opera */
-    from {
-        opacity:0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-	
-.zoom {
-    position:absolute;
-    bottom:20px;
-    right:-329px;
-}
-	
-.fix {
-    right:349px !important;
-}
 
 
-.zoomout {
-    width: 1px;
-    height: 1px;
-    margin: 0 auto;
-}
-	
-.zoomin {
-    width: 200px;
-    height: 200px;
-    margin: 0 auto;
-}
-
-
- .rotate {
-  border-radius: 50%;
-  -webkit-transition: -webkit-transform .8s ease-in-out;
-          transition:         transform .8s ease-in-out;
-}
-.rotate:hover {
-  -webkit-transform: rotate(360deg);
-          transform: rotate(360deg);
-}
 
  </style>
 	
@@ -176,7 +71,47 @@ lpTag.sdes.push(
 
 }, 10000);
 		 
-		 
+var style = document.createElement('style');
+style.type = 'text/css';
+style.innerHTML = '@keyframes heartbeat
+{
+  94%
+  {
+    transform: scale( 1 );
+  }
+  97%
+  {
+    transform: scale( 1.02 );
+  }
+  100%
+  {
+    transform: scale( 1 );
+  }
+}
+	
+.beat
+{
+  animation: heartbeat 5s infinite;
+}
+
+	
+.move {
+   right:0px;
+   transform: translate(-349px, 0);
+   transition-duration: 2s;
+}
+
+
+	
+.zoom {
+    position:absolute;
+    bottom:20px;
+    right:-329px;
+}
+	
+.fix {
+    right:349px !important;
+}';		 
 
  var refreshIntervalId1 = setInterval(function(){
 		   var myEle = document.getElementsByClassName("LPMcontainer")[0];
