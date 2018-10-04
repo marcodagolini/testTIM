@@ -71,25 +71,28 @@ lpTag.sdes.push(
 
 
 }, 10000);
+
 		 
 var style = document.createElement('style');
 style.type = 'text/css';
-style.innerHTML = '@keyframes heartbeat
-{
-  94%
-  {
-    transform: scale( 1 );
-  }
-  97%
-  {
-    transform: scale( 1.02 );
-  }
-  100%
-  {
-    transform: scale( 1 );
-  }
-}
-	
+var keyFrames = '\
+@keyframes heartbeat {\
+    94% {\
+        transform: scale( 1 );\
+    }\
+    97% {\
+        transform: scale( 1.02 );\
+    }\
+    100% {\
+        transform: scale( 1 );\
+    }\
+}';
+style.innerHTML = keyFrames;
+document.getElementsByTagName('head')[0].appendChild(style);
+		 
+var style = document.createElement('style');
+style.type = 'text/css';
+style.innerHTML = '	
 .beat
 {
   animation: heartbeat 5s infinite;
