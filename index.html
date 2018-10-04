@@ -82,9 +82,9 @@
 }
 	
 .fix {
-    position:absolute;
-    bottom:20px;
-    right:20px;
+    position:absolute !important;
+    bottom:20px !important;
+    right:20px !important;
 }
 
 
@@ -192,8 +192,9 @@ lpTag.sdes.push(
 				   // $(".LPMcontainer").removeClass( "zoom" );
 				   
 				   $(".LPMcontainer").removeClass( "move" );
+				   $(".LPMcontainer").addClass( "fix" );
 
-				   $(".LPMcontainer").attr('style', 'right:20px !important');
+
 
 				   
 				   // $(".LPMcontainer").addClass( "beat" );
