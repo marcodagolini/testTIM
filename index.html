@@ -94,9 +94,11 @@ document.getElementsByTagName('head')[0].appendChild(style);
 			   setTimeout(function(){
 				   console.log("translating");
 				   if($(".LPMcontainer").hasClass("zoom")){
+					  console.log("desktop");
 					  $(".LPMcontainer").addClass( "move" ); 
 				   }
 				   if($(".LPMcontainer").hasClass("zoommobile")){
+					  console.log("mobile");
 					  $(".LPMcontainer").addClass( "movemobile" ); 
 				   }
 				   
