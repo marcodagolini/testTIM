@@ -94,15 +94,34 @@ document.getElementsByTagName('head')[0].appendChild(style);
 			   // $(".LPMcontainer").addClass( "position" );
 			   setTimeout(function(){
 				   console.log("translating");
-				   $(".LPMcontainer").addClass( "move" );
+				   if($(".LPMcontainer").hasClass("zoom")){
+					  $(".LPMcontainer").addClass( "move" ); 
+				   }
+				   if($(".LPMcontainer").hasClass("zoommobile")){
+					  $(".LPMcontainer").addClass( "movemobile" ); 
+				   }
+				   
 			   }, 1000);
 			   
 			   setTimeout(function(){
 				   console.log("pulsing");
-				   $(".LPMcontainer").removeClass( "zoom" );
-				   $(".LPMcontainer").removeClass( "move" );
-				   $(".LPMcontainer").addClass( "fix" );
-				   $(".LPMcontainer").addClass( "beat" );
+				   if($(".LPMcontainer").hasClass("zoom")){
+					  $(".LPMcontainer").removeClass( "zoom" );
+					  $(".LPMcontainer").removeClass( "move" );
+					  $(".LPMcontainer").addClass( "fix" );
+					  $(".LPMcontainer").addClass( "beat" );
+				   }
+				   
+				   if($(".LPMcontainer").hasClass("zoommobile")){
+					  $(".LPMcontainer").removeClass( "zoommobile" );
+					  $(".LPMcontainer").removeClass( "movemobile" );
+					  $(".LPMcontainer").addClass( "fixmobile" );
+					  $(".LPMcontainer").addClass( "beatmobile" );
+				   }
+				   
+				   
+				   
+				   
 			   }, 5000);
 			   
 
