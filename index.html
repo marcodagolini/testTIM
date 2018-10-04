@@ -94,11 +94,11 @@ document.getElementsByTagName('head')[0].appendChild(style);
 			   // $(".LPMcontainer").addClass( "position" );
 			   setTimeout(function(){
 				   console.log("translating");
-				   if($(".LPMcontainer").hasClass("zoom")){
+				   if($(".LPMcontainer").find('div.zoom').length !== 0){
 					  console.log("desktop");
 					  $(".LPMcontainer").addClass( "move" ); 
 				   }
-				   if($(".LPMcontainer").hasClass("zoommobile")){
+				   if($(".LPMcontainer").find('div.zoommobile').length !== 0){
 					  console.log("mobile");
 					  $(".LPMcontainer").addClass( "movemobile" ); 
 				   }
@@ -107,14 +107,14 @@ document.getElementsByTagName('head')[0].appendChild(style);
 			   
 			   setTimeout(function(){
 				   console.log("pulsing");
-				   if($(".LPMcontainer").hasClass("zoom")){
+				   if($(".LPMcontainer").find('div.zoom').length !== 0){
 					  $(".LPMcontainer").removeClass( "zoom" );
 					  $(".LPMcontainer").removeClass( "move" );
 					  $(".LPMcontainer").addClass( "fix" );
 					  $(".LPMcontainer").addClass( "beat" );
 				   }
 				   
-				   if($(".LPMcontainer").hasClass("zoommobile")){
+				   if($(".LPMcontainer").find('div.zoommobile').length !== 0){
 					  $(".LPMcontainer").removeClass( "zoommobile" );
 					  $(".LPMcontainer").removeClass( "movemobile" );
 					  $(".LPMcontainer").addClass( "fixmobile" );
