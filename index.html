@@ -1,150 +1,400 @@
-<html>	
-
-	
-	
- <head>
-	
-	
-	 
-
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-
-  <!-- BEGIN LivePerson Monitor. -->
+<!-- BEGIN LivePerson Monitor. -->
 <script type="text/javascript">window.lpTag=window.lpTag||{},'undefined'==typeof window.lpTag._tagCount?(window.lpTag={wl:lpTag.wl||null,scp:lpTag.scp||null,site:'42287764'||'',section:lpTag.section||'',tagletSection:lpTag.tagletSection||null,autoStart:lpTag.autoStart!==!1,ovr:lpTag.ovr||{},_v:'1.10.0',_tagCount:1,protocol:'https:',events:{bind:function(t,e,i){lpTag.defer(function(){lpTag.events.bind(t,e,i)},0)},trigger:function(t,e,i){lpTag.defer(function(){lpTag.events.trigger(t,e,i)},1)}},defer:function(t,e){0===e?(this._defB=this._defB||[],this._defB.push(t)):1===e?(this._defT=this._defT||[],this._defT.push(t)):(this._defL=this._defL||[],this._defL.push(t))},load:function(t,e,i){var n=this;setTimeout(function(){n._load(t,e,i)},0)},_load:function(t,e,i){var n=t;t||(n=this.protocol+'//'+(this.ovr&&this.ovr.domain?this.ovr.domain:'lptag.liveperson.net')+'/tag/tag.js?site='+this.site);var o=document.createElement('script');o.setAttribute('charset',e?e:'UTF-8'),i&&o.setAttribute('id',i),o.setAttribute('src',n),document.getElementsByTagName('head').item(0).appendChild(o)},init:function(){this._timing=this._timing||{},this._timing.start=(new Date).getTime();var t=this;window.attachEvent?window.attachEvent('onload',function(){t._domReady('domReady')}):(window.addEventListener('DOMContentLoaded',function(){t._domReady('contReady')},!1),window.addEventListener('load',function(){t._domReady('domReady')},!1)),'undefined'===typeof window._lptStop&&this.load()},start:function(){this.autoStart=!0},_domReady:function(t){this.isDom||(this.isDom=!0,this.events.trigger('LPT','DOM_READY',{t:t})),this._timing[t]=(new Date).getTime()},vars:lpTag.vars||[],dbs:lpTag.dbs||[],ctn:lpTag.ctn||[],sdes:lpTag.sdes||[],hooks:lpTag.hooks||[],identities:lpTag.identities||[],ev:lpTag.ev||[]},lpTag.init()):window.lpTag._tagCount+=1;</script>
 <!-- END LivePerson Monitor. -->
 
- 
- <title>Test TIM</title>
- 
 
- </head>
- <body>
-  
 
-  
-  
+
+<script src="https://track.adform.net/serving/scripts/trackpoint/async/"></script>
 
 
 
 
-	 <script>
-		 
-setTimeout(function(){
-
-console.log("push");
-
-lpTag.sdes = lpTag.sdes||[];
-lpTag.sdes.push(
-   {
-        "type": "personal",  //MANDATORY
-            "personal": {
-            "firstname": "John",  // FIRST NAME
-            "lastname": "Doe",  // SURNAME
-            "age": {
-               "age": 34,  // AGE AS INTEGER
-               "year": 1980,  // BIRTH YEAR
-               "month": 4,  // BIRTH MONTH
-               "day": 15  // BIRTH DAY
-           },
-            "contacts": [{
-               "email": "myname@example.com",  // EMAIL
-               "phone": "+1 212-788-8877"  // PHONE NUMBER
-           }],
-            "gender": "MALE",  // MALE, FEMALE, OTHER
-            "language": "en-US",  // LANGUAGE 
-            "company": "company"  // VISITOR COMPANY NAME
-        }
-   }
-);
+<script type="text/javascript">
+window._adftrack = Array.isArray(window._adftrack) ? window._adftrack : (window._adftrack ? [window._adftrack] : []);
+window._adftrack.push({
+        pm: 307530,
+        divider: encodeURIComponent('|'),
+        pagename: encodeURIComponent('Click_Bottone_Liveperson')
+    });
+window._adftrack.push({
+        pm: 307530,
+        divider: encodeURIComponent('|'),
+        pagename: encodeURIComponent('Chat_Interattiva_Liveperson')
+    });
+window._adftrack.push({
+        pm: 307530,
+        divider: encodeURIComponent('|'),
+        pagename: encodeURIComponent('Conversione_Liveperson')
+    });
 
 
 
+function clickOrNot(){
+	console.log("click");
+	// var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Click_Bottone_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
+	// $("body").append(txt);
+}
 
-}, 10000);
 
-		 
-var style = document.createElement('style');
-style.type = 'text/css';
-var keyFrames = '\
-@keyframes heartbeat {\
-    24% {\
-        transform: scale( 1 );\
-    }\
-    27% {\
-        transform: scale( 1.02 );\
-    }\
-    30% {\
-        transform: scale( 1 );\
-    }\
-}';
-style.innerHTML = keyFrames;
-document.getElementsByTagName('head')[0].appendChild(style);
-		 
-var style = document.createElement('style');
-style.type = 'text/css';
-style.innerHTML = '.beat{animation: heartbeat 5s infinite;} .move {right:0px;transform: translate(-370px, 0);transition-duration: 2s;} .zoom {position:absolute;bottom:20px;right:-350px;} .fix {right:370px !important;} .beatmobile{animation: heartbeat 5s infinite;} .movemobile {right:0px;transform: translate(-720px, 0);transition-duration: 2s;} .zoommobile {position:absolute;bottom:20px;right:-700px;} .fixmobile {right:720px !important;}';		 
-document.getElementsByTagName('head')[0].appendChild(style);
 
-	var refreshIntervalId1 = setInterval(function(){
+function interactiveOrNot(data, eventInfo){
+	if(window.console && window.JSON){
+		if(data.state === "interactive"){
+			console.log("interactive");
+			lpTag.sdes = lpTag.sdes||[];
+			lpTag.sdes.push({
+				"type": "ctmrinfo",
+				"info": {
+					"cstatus": "interactive"
+				}
+			});
+			// var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Chat_Interattiva_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
+			// $("body").append(txt);
+		}
+	}
+}
+				  				 	
+				
+
+
+
+lpTag.events.bind({
+	eventName : "OFFER_CLICK",
+	appName : "LP_OFFERS",
+	func: clickOrNot,
+	triggerOnce : false
+});
+
+lpTag.events.bind({
+	eventName : "state",
+	appName : "lpUnifiedWindow",
+	func: interactiveOrNot,
+	triggerOnce : false
+});
+
+
+      
+/****
+      funzione per cominciare il monitoring del pulsante e di sessioni eventualmente gia'aperte
+****/
+   function startMonitoring(){
+	   
+	   var refreshIntervalId1;
+
+	   
+	   refreshIntervalId1 = setInterval(function(){
 		   var myEle = document.getElementsByClassName("LPMcontainer")[0];
 		   if(myEle){
-			   console.log("button presented");
-			   clearInterval(refreshIntervalId1);
-			   // $(".LPMcontainer").addClass( "position" );
 			   setTimeout(function(){
-				   console.log("translating");
 				   if($(".LPMcontainer").find('div.zoom').length !== 0){
-					  console.log("desktop");
-					  $(".LPMcontainer").addClass( "move" ); 
+					   $(".LPMcontainer").addClass( "move" );
 				   }
 				   if($(".LPMcontainer").find('div.zoommobile').length !== 0){
-					  console.log("mobile");
-					  $(".LPMcontainer").addClass( "movemobile" ); 
+					   $(".LPMcontainer").addClass( "movemobile" );
 				   }
-				   
 			   }, 1000);
 			   
 			   setTimeout(function(){
-				   console.log("pulsing");
 				   if($(".LPMcontainer").find('div.zoom').length !== 0){
-					  $(".LPMcontainer").removeClass( "zoom" );
-					  $(".LPMcontainer").removeClass( "move" );
-					  $(".LPMcontainer").addClass( "fix" );
-					  $(".LPMcontainer").addClass( "beat" );
+					   $(".LPMcontainer").removeClass( "zoom" );
+					   $(".LPMcontainer").removeClass( "move" );
+					   $(".LPMcontainer").addClass( "fix" );
+					   $(".LPMcontainer").addClass( "beat" );
 				   }
-				   
 				   if($(".LPMcontainer").find('div.zoommobile').length !== 0){
-					  $(".LPMcontainer").removeClass( "zoommobile" );
-					  $(".LPMcontainer").removeClass( "movemobile" );
-					  $(".LPMcontainer").addClass( "fixmobile" );
-					  $(".LPMcontainer").addClass( "beatmobile" );
+					   $(".LPMcontainer").removeClass( "zoommobile" );
+					   $(".LPMcontainer").removeClass( "movemobile" );
+					   $(".LPMcontainer").addClass( "fixmobile" );
+					   $(".LPMcontainer").addClass( "beatmobile" );
 				   }
-				   
-				   
-				   
-				   
 			   }, 5000);
-			   
+			
+			   console.log("button presented");
+			   clearInterval(refreshIntervalId1);
 
 		   }
 	   }, 100);
+	   
 
-	
+	   	
+	   
+	   
+   }
+	  
+	  
 
-    
-  </script>
-	 
-	 
-	 
-	 
+	var style = document.createElement('style');
+	style.type = 'text/css';
+	var keyFrames = '\
+@keyframes heartbeat {\
+24% {\
+transform: scale( 1 );\
+}\
+27% {\
+transform: scale( 1.02 );\
+}\
+30% {\
+transform: scale( 1 );\
+}\
+}';
+	style.innerHTML = keyFrames;
+	document.getElementsByTagName('head')[0].appendChild(style);
+	var style = document.createElement('style');
+	style.type = 'text/css';
+	style.innerHTML = '.beat{animation: heartbeat 5s infinite;} .move {right:0px;transform: translate(-370px, 0);transition-duration: 2s;} .zoom {position:absolute;bottom:20px;right:-350px;} .fix {right:370px !important;} .beatmobile{animation: heartbeat 5s infinite;} .movemobile {right:0px;transform: translate(-720px, 0);transition-duration: 2s;} .zoommobile {position:absolute;bottom:20px;right:-700px;} .fixmobile {right:720px !important;}'; 
+	document.getElementsByTagName('head')[0].appendChild(style);
 
-	 
-  
-
- 
- 
-</body>
-  
-
-  
-</html>
+//*********
+//this section below tracks the page of the funnel visited.
+//the Timeout function is just to be sure the page is already starting to load some object, it should be useless
+//the funnel is not a pure SPA, that's why i can't track it with events, i need to use as well to check if some elements are presented or not
+//*********
+$(document).ready(function(){
+	setTimeout(function(){
+		startMonitoring();
+		setTimeout(function(){
+			var wt8si = $('#wt_8si').length;
+			var wt8no = $('#wt_8no').length;
+			var editbe2 =  $('#edit-b-e2').length;
+			var editee30 = $('#edit-e-e30').length;
+			var editinputdomiciliazioneno = $('#edit-input-domiciliazione-no').length;
+			var bannerriepilogo= $('#banner-riepilogo').length;
+			var edite2timdigitalmigrazione = $('#edit-e2-timdigital-migrazione').length;
+			var CurrentLocation = window.location.href;
+			
+//*********
+//Funnel Nuovo Cliente
+//*********			
+			
+			
+			if (wt8si) {
+				if($("#wt_8si").is(":visible")){
+					lpTag.newPage(CurrentLocation + "/Prospect/paginagenericaFunnel", {section: "prospect"});
+					console.log("prima pagina");
+					$('#wt_8no').click(function(){
+						lpTag.newPage(CurrentLocation + "/Nuovo/primapaginaFunnel", {section: "nuovo1"});
+						console.log("seconda pagina");
+					});
+				}
+			}
+			if (editbe2) {
+				if(!$("#wt_8si").is(":visible")){
+					lpTag.newPage(CurrentLocation + "/Nuovo/primapaginaFunnel", {section: "nuovo1"});
+					console.log("seconda pagina");
+				}
+			}
+			if (editee30) {
+				lpTag.newPage(CurrentLocation + "/Nuovo/secondapaginaFunnel", {section: "nuovo2"});
+				console.log("terza pagina");
+			}
+			if (editinputdomiciliazioneno) {
+				lpTag.newPage(CurrentLocation + "/Nuovo/terzapaginaFunnel", {section: "nuovo3"});
+				console.log("quarta pagina");
+			}
+			if (bannerriepilogo) {
+				lpTag.newPage(CurrentLocation + "/Nuovo/EndFunnel", {section: "nuovo4"});
+				console.log("quinta pagina");
+				if((lpTag.sdes.get('ctmrinfo')[lpTag.sdes.get('ctmrinfo').length-1].info.cstatus) === "interactive"){
+					console.log("convertito");
+					var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Conversione_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
+					$("body").append(txt);
+					lpTag.sdes = lpTag.sdes||[];
+					lpTag.sdes.push(
+						{
+							"type": "ctmrinfo",  //MANDATORY
+							"info": {
+								"cstatus": "converted"  //CUSTOMER LIFECYCLE STATUS. FROM PRE-DEFINED LIST
+							}
+						}
+					);
+				}
+			}
+		}, 3000);
+		
+//*********
+//this section below tracks the visitor errors coming from empty (forgotten) fields after the click to go to the next page
+//the errors could be visible or not, that's why i'm checking if the value is visible or not
+//*********		
+		
+		$(".form-submit").click(function(){
+			setTimeout(function(){
+				$(".ti_errori").each(function() {
+					if ($(this).is(":visible") == true) {
+						console.log("click");
+						var errorField = $(this);
+						var stringa = errorField[0].innerHTML;
+						if (stringa !== null) {
+							var error_code;
+							var error_message;
+							if (stringa.includes("CODICE FISCALE")){
+								error_code = "cod_fisc";
+								error_message = "Codice Fiscale dimenticato";
+							}
+							else if (stringa.includes("PREFISSO")){
+								error_code = "prefisso_tel";
+								error_message = "Prefisso dimenticato";
+							}
+							else if ((stringa.includes("NUMERO non"))||(stringa.includes("NUMERO \xE8"))){
+								error_code = "numero_tel";
+								error_message = "NumTelefono dimenticato";
+							}
+							else if (stringa.includes("INDIRIZZO")){
+								error_code = "Indirizzo";
+								error_message = "Indirizzo dimenticato";
+							}
+							else if (stringa.includes("NUMERO CIVICO")){
+								error_code = "Civico";
+								error_message = "Civico dimenticato";
+							}
+							else if (stringa.includes("PROVINCIA di nascita")){
+								error_code = "Provincia";
+								error_message = "Provincia dimenticata";
+							}
+							else if (stringa.includes("COMUNE di nascita")){
+								error_code = "Comune";
+								error_message = "Comune dimenticato";
+							}
+							else if (stringa.includes("CAP")){
+								error_code = "CAP";
+								error_message = "CAP dimenticato";
+							}
+							else if (stringa.includes("Operatore")){
+								error_code = "Operatore";
+								error_message = "Operatore dimenticato";
+							}
+							else if (stringa.includes("MIGRAZIONE")){
+								error_code = "Migrazione";
+								error_message = "CodMigraz dimenticato";
+							}
+							else if (stringa.includes("SESSO")){
+								error_code = "Sesso";
+								error_message = "Sesso dimenticato";
+							}
+							else if (stringa.includes("tipo del tuo DOCUMENTO")){
+								error_code = "Tipo Documento";
+								error_message = "Tipo Documento dimenticato";
+							}
+							else if (stringa.includes("numero del tuo DOCUMENTO")){
+								error_code = "Numero Documento";
+								error_message = "Numero Documento dimenticato";
+							}
+							else if (stringa.includes("Numero del DOCUMENTO non vali")){
+								error_code = "Numero Documento non valido";
+								error_message = "Numero Documento non valido";
+							}
+							else if (stringa.includes("ente che ha rilasciato il tuo DOCUMENTO")){
+								error_code = "Ente Documento";
+								error_message = "Ente Documento dimenticato";
+							}
+							else if (stringa.includes("PROVINCIA che ha rilasciato il tuo DOCUMENTO")){
+								error_code = "Provincia Documento";
+								error_message = "Provincia Documento dimenticato";
+							}
+							else if (stringa.includes("COMUNE che ha rilasciato il tuo DOCUMENTO")){
+								error_code = "Comune Documento";
+								error_message = "Comune Documento dimenticato";
+							}
+							else if (stringa.includes("Il NOME è obb")){
+								error_code = "Nome";
+								error_message = "Nome dimenticato";
+							}
+							else if (stringa.includes("COGNOME")){
+								error_code = "Cognome";
+								error_message = "Cognome dimenticato";
+							}
+							else if (stringa.includes("nascita")){
+								error_code = "Data Nascita";
+								error_message = "Data nascita dimenticata";
+							}
+							else if (stringa.includes("rilascio")){
+								error_code = "Data Rilascio";
+								error_message = "Data rilascio dimenticata";
+							}
+							else if (stringa.includes("scadenza")){
+								error_code = "Data Scadenza";
+								error_message = "Data scadenza dimenticata";
+							}
+							else if (stringa.includes("MAIL")){
+								error_code = "E-Mail dimenticata";
+								error_message = "E-Mail dimenticata";
+							}
+							else if (stringa.includes("dati anagrafici inseriti non sono coerenti")){
+								error_code = "Anagrafica incoerente";
+								error_message = "Anagrafica incoerente";
+							}
+							else if (stringa.includes("recapito")){
+								error_code = "Recapito Errato";
+								error_message = "Recapito Errato";
+							}
+							if(error_message !== undefined){
+								console.log(error_message + "  <-->  " + error_code);
+								lpTag.sdes = lpTag.sdes || [];
+								lpTag.sdes.push(
+									{
+										"type": "error", //MANDATORY
+										"error": {
+											"message": error_message, // THE ERROR MESSAGE
+											"code": error_code // THE ERROR CODE
+										}
+									});
+							} 
+						}
+					}
+				});
+			}, 1000);
+		});
+		
+		
+//*********
+//this section below tracks the 4th page
+//*********		
+		
+		
+		
+		$(".submitStep").click(function(){
+			setTimeout(function(){
+				$(".ti_errori").each(function() {
+					if ($(this).is(":visible") == true) {
+						console.log("click");
+						var errorField = $(this);
+						var stringa = errorField[0].innerHTML;
+						if (stringa !== null) {
+							var error_code;
+							var error_message;
+							if (stringa.includes("L'accettazione delle CONDIZIONI CONTRATTUALI è obbligatoria")){
+								error_code = "Condizioni Contrattuali";
+								error_message = "Accettare Condizioni Contrattuali";
+							}
+							else if (stringa.includes("È obbligatorio esprimere o non esprimere il CONSENSO AL TRATT")){
+								error_code = "Trattamento Dati";
+								error_message = "Trattamento Dati dimenticato";
+							}
+							else if (stringa.includes("Verificare il codice iban")){
+								error_code = "Codice IBAN";
+								error_message = "Codice IBAN Mancante";
+							}
+							else if (stringa.includes("esprimere il DIRITTO DI RIPENSAMENTO")){
+								error_code = "Diritto Ripensamento";
+								error_message = "Diritto Ripensamento Mancante";
+							}
+							if(error_message !== undefined){
+								console.log(error_message + "  <-->  " + error_code);
+								lpTag.sdes = lpTag.sdes || [];
+								lpTag.sdes.push(
+									{
+										"type": "error", //MANDATORY
+										"error": {
+											"message": error_message, // THE ERROR MESSAGE
+											"code": error_code // THE ERROR CODE
+										}
+									});
+							} 
+						}
+					}
+				});
+			}, 1000);
+		});
+	}, 3000);
+});
+</script>
