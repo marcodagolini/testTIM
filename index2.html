@@ -1,3 +1,10 @@
+<!-- BEGIN LivePerson Monitor. -->
+<script type="text/javascript">window.lpTag=window.lpTag||{},'undefined'==typeof window.lpTag._tagCount?(window.lpTag={wl:lpTag.wl||null,scp:lpTag.scp||null,site:'42287764'||'',section:lpTag.section||'',tagletSection:lpTag.tagletSection||null,autoStart:lpTag.autoStart!==!1,ovr:lpTag.ovr||{},_v:'1.10.0',_tagCount:1,protocol:'https:',events:{bind:function(t,e,i){lpTag.defer(function(){lpTag.events.bind(t,e,i)},0)},trigger:function(t,e,i){lpTag.defer(function(){lpTag.events.trigger(t,e,i)},1)}},defer:function(t,e){0===e?(this._defB=this._defB||[],this._defB.push(t)):1===e?(this._defT=this._defT||[],this._defT.push(t)):(this._defL=this._defL||[],this._defL.push(t))},load:function(t,e,i){var n=this;setTimeout(function(){n._load(t,e,i)},0)},_load:function(t,e,i){var n=t;t||(n=this.protocol+'//'+(this.ovr&&this.ovr.domain?this.ovr.domain:'lptag.liveperson.net')+'/tag/tag.js?site='+this.site);var o=document.createElement('script');o.setAttribute('charset',e?e:'UTF-8'),i&&o.setAttribute('id',i),o.setAttribute('src',n),document.getElementsByTagName('head').item(0).appendChild(o)},init:function(){this._timing=this._timing||{},this._timing.start=(new Date).getTime();var t=this;window.attachEvent?window.attachEvent('onload',function(){t._domReady('domReady')}):(window.addEventListener('DOMContentLoaded',function(){t._domReady('contReady')},!1),window.addEventListener('load',function(){t._domReady('domReady')},!1)),'undefined'===typeof window._lptStop&&this.load()},start:function(){this.autoStart=!0},_domReady:function(t){this.isDom||(this.isDom=!0,this.events.trigger('LPT','DOM_READY',{t:t})),this._timing[t]=(new Date).getTime()},vars:lpTag.vars||[],dbs:lpTag.dbs||[],ctn:lpTag.ctn||[],sdes:lpTag.sdes||[],hooks:lpTag.hooks||[],identities:lpTag.identities||[],ev:lpTag.ev||[]},lpTag.init()):window.lpTag._tagCount+=1;</script>
+<!-- END LivePerson Monitor. -->
+
+
+
+
 <script src="https://track.adform.net/serving/scripts/trackpoint/async/"></script>
 
 
@@ -13,83 +20,60 @@ window._adftrack.push({
 window._adftrack.push({
         pm: 307530,
         divider: encodeURIComponent('|'),
-        pagename: encodeURIComponent('Chiusura_Chat_Liveperson')
+        pagename: encodeURIComponent('Chat_Interattiva_Liveperson')
     });
 window._adftrack.push({
         pm: 307530,
         divider: encodeURIComponent('|'),
         pagename: encodeURIComponent('Conversione_Liveperson')
     });
-    
-    
-function ButtonClicked(){
-	var refreshIntervalId1;
-	var refreshIntervalId2;
-	var refreshIntervalId3;
-	var myClose;
-	var mySend;
-	var consumerMessages;
-	var myRefuse;
-	refreshIntervalId1 = setInterval(function(){
-		myClose = document.getElementsByClassName("lp_close")[0];
-		if(myClose){
-			clearInterval(refreshIntervalId1);
-			refreshIntervalId2 = setInterval(function(){
-				consumerMessages = document.getElementsByClassName("lp_visitor");
-				if(consumerMessages.length > 0){
-					clearInterval(refreshIntervalId2);
-					console.log("we have messages!");
-					WeHaveMessages = true;
+
+
+
+function clickOrNot(){
+	console.log("click");
+	// var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Click_Bottone_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
+	// $("body").append(txt);
+}
+
+
+
+function interactiveOrNot(data, eventInfo){
+	if(window.console && window.JSON){
+		if(data.state === "interactive"){
+			console.log("interactive");
+			lpTag.sdes = lpTag.sdes||[];
+			lpTag.sdes.push({
+				"type": "ctmrinfo",
+				"info": {
+					"cstatus": "interactive"
 				}
-			}, 1000);   
-			$('.lp_close').click(function(){
-				setTimeout(function(){
-					var xyz = document.getElementsByClassName("lp_close");
-					if(xyz.length > 0){
-						console.log("conversation started");
-						clearInterval(refreshIntervalId2);
-						refreshIntervalId3 = setInterval(function(){
-							myRefuse = document.getElementsByClassName("lp_cancel_button");
-							if(myRefuse){
-								clearInterval(refreshIntervalId3);
-								$('.lp_cancel_button').click(function(){
-									refreshIntervalId2 = setInterval(function(){
-										consumerMessages = document.getElementsByClassName("lp_visitor");
-										if(consumerMessages.length > 0){
-											clearInterval(refreshIntervalId2);
-											console.log("we have messages!");
-											WeHaveMessages = true;
-										}
-									}, 1000);
-									startMonitoring();
-								});
-							}
-
-
-							myConfirmationClosure = document.getElementsByClassName("lp_confirm_button");
-							if(myConfirmationClosure){
-								clearInterval(refreshIntervalId3);
-								$('.lp_confirm_button').click(function(){
-								 	var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Chiusura_Chat_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
-				  				 	$("body").append(txt);
-								});
-							}
+			});
+			// var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Chat_Interattiva_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
+			// $("body").append(txt);
+		}
+	}
+}
+				  				 	
+				
 
 
 
-						}, 100);
-				   	} else{
-					   	console.log("conversation not started");
-						startMonitoring();
-				   	}
-				   }, 1000);
-				   console.log("close clicked");
-				   
-			   });
-		   }
-	   }, 100);
-	   
-   }
+lpTag.events.bind({
+	eventName : "OFFER_CLICK",
+	appName : "LP_OFFERS",
+	func: clickOrNot,
+	triggerOnce : false
+});
+
+lpTag.events.bind({
+	eventName : "state",
+	appName : "lpUnifiedWindow",
+	func: interactiveOrNot,
+	triggerOnce : false
+});
+
+
       
 /****
       funzione per cominciare il monitoring del pulsante e di sessioni eventualmente gia'aperte
@@ -97,7 +81,7 @@ function ButtonClicked(){
    function startMonitoring(){
 	   
 	   var refreshIntervalId1;
-	   var refreshIntervalId2;
+
 	   
 	   refreshIntervalId1 = setInterval(function(){
 		   var myEle = document.getElementsByClassName("LPMcontainer")[0];
@@ -128,36 +112,18 @@ function ButtonClicked(){
 			
 			   console.log("button presented");
 			   clearInterval(refreshIntervalId1);
-			   clearInterval(refreshIntervalId2);
-			   $('.LPMcontainer').click(function(){
-				   console.log("button clicked");
-				   var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Click_Bottone_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
-				   $("body").append(txt);
-				   sessionWebChat = true;
-				   ButtonClicked();
-			   });
+
 		   }
 	   }, 100);
 	   
-	   refreshIntervalId2 = setInterval(function(){
-		   var myEle = document.getElementsByClassName("lp_close")[0];
-		   if(myEle){
-			   console.log("button presented");
-			   clearInterval(refreshIntervalId1);
-			   clearInterval(refreshIntervalId2);
-			   console.log("chat already open");
-			   sessionWebChat = true;
-			   ButtonClicked();	   
-		   }
-	   }, 500);
+
 	   	
 	   
 	   
    }
 	  
 	  
-   var sessionWebChat = false;
-   var WeHaveMessages = false;
+
 	var style = document.createElement('style');
 	style.type = 'text/css';
 	var keyFrames = '\
@@ -229,7 +195,7 @@ $(document).ready(function(){
 			if (bannerriepilogo) {
 				lpTag.newPage(CurrentLocation + "/Nuovo/EndFunnel", {section: "nuovo4"});
 				console.log("quinta pagina");
-				if(WeHaveMessages === true){
+				if((lpTag.sdes.get('ctmrinfo')[lpTag.sdes.get('ctmrinfo').length-1].info.cstatus) === "interactive"){
 					console.log("convertito");
 					var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Conversione_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
 					$("body").append(txt);
@@ -432,4 +398,6 @@ $(document).ready(function(){
 	}, 3000);
 });
 </script>
+
+  
 
