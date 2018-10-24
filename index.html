@@ -62,13 +62,13 @@ function clickOrNot(data, eventInfo){
 	if(window.console && window.JSON){
 		console.log(data.campaignId);
 		if(data.campaignId === "825663232"){
-			// var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Click_Bottone_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
-			// $("body").append(txt);
+			var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Click_Bottone_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
+			$("body").append(txt);
 		}else{
-			// var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Click_Bottone_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
-			// $("body").append(txt);
-			// var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Chat_Interattiva_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
-			// $("body").append(txt);
+			var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Click_Bottone_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
+			$("body").append(txt);
+			var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Chat_Interattiva_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
+			$("body").append(txt);
 			console.log("interactivex");
 			lpTag.sdes = lpTag.sdes||[];
 			lpTag.sdes.push({
@@ -95,55 +95,13 @@ function interactiveOrNot(data, eventInfo){
 					"cstatus": "interactive"
 				}
 			});
-			// var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Chat_Interattiva_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
-			// $("body").append(txt);
+			var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Chat_Interattiva_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
+			$("body").append(txt);
 		}
 	}
 }
 	
 	
-	
-	
-	
-	
-setTimeout(function(){
-
-console.log("push");
-
-lpTag.sdes = lpTag.sdes||[];
-lpTag.sdes.push(
-   {
-        "type": "personal",  //MANDATORY
-            "personal": {
-            "firstname": "John",  // FIRST NAME
-            "lastname": "Doe",  // SURNAME
-            "age": {
-               "age": 34,  // AGE AS INTEGER
-               "year": 1980,  // BIRTH YEAR
-               "month": 4,  // BIRTH MONTH
-               "day": 15  // BIRTH DAY
-           },
-            "contacts": [{
-               "email": "myname@example.com",  // EMAIL
-               "phone": "+1 212-788-8877"  // PHONE NUMBER
-           }],
-            "gender": "MALE",  // MALE, FEMALE, OTHER
-            "language": "en-US",  // LANGUAGE 
-            "company": "company"  // VISITOR COMPANY NAME
-        }
-   }
-);
-
-
-
-}, 5000);
-
-				  				 	
-				
-
-
-
-
 
 
       
