@@ -59,10 +59,24 @@ window._adftrack.push({
 
 function clickOrNot(data, eventInfo){
 	console.log("click");
-	// var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Click_Bottone_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
-	// $("body").append(txt);
 	if(window.console && window.JSON){
-		console.log(data);
+		console.log(data.campaignId);
+		if(data.campaignId === "825663232"){
+			// var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Click_Bottone_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
+			// $("body").append(txt);
+		}else{
+			// var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Click_Bottone_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
+			// $("body").append(txt);
+			// var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Chat_Interattiva_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
+			// $("body").append(txt);
+			lpTag.sdes = lpTag.sdes||[];
+			lpTag.sdes.push({
+				"type": "ctmrinfo",
+				"info": {
+					"cstatus": "interactive"
+				}
+			});
+		}
 	}
 
 }
@@ -80,19 +94,6 @@ function interactiveOrNot(data, eventInfo){
 					"cstatus": "interactive"
 				}
 			});
-			setTimeout(function(){
-				console.log("inside1");
-				if((lpTag.sdes.get('ctmrinfo')[lpTag.sdes.get('ctmrinfo').length-1].info.cstatus) === "interactive"){
-					console.log("inside2");
-					lpTag.sdes = lpTag.sdes||[];
-					lpTag.sdes.push({
-						"type": "ctmrinfo",
-						"info": {
-							"cstatus": "convs"
-						}
-					});
-				}
-			}, 10000);
 			// var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Chat_Interattiva_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
 			// $("body").append(txt);
 		}
@@ -138,24 +139,12 @@ lpTag.sdes.push(
 
 				  				 	
 				
-setTimeout(function(){
 
 
-lpTag.events.bind({
-	eventName : "OFFER_CLICK",
-	appName : "LP_OFFERS",
-	func: clickOrNot,
-	triggerOnce : false
-});
 
-lpTag.events.bind({
-	eventName : "state",
-	appName : "lpUnifiedWindow",
-	func: interactiveOrNot,
-	triggerOnce : false
-});
 
-}, 5000);
+
+
       
 /****
       funzione per cominciare il monitoring del pulsante e di sessioni eventualmente gia'aperte
@@ -209,17 +198,17 @@ lpTag.events.bind({
 	var style = document.createElement('style');
 	style.type = 'text/css';
 	var keyFrames = '\
-@keyframes heartbeat {\
-24% {\
-transform: scale( 1 );\
-}\
-27% {\
-transform: scale( 1.02 );\
-}\
-30% {\
-transform: scale( 1 );\
-}\
-}';
+		@keyframes heartbeat {\
+		24% {\
+		transform: scale( 1 );\
+		}\
+		27% {\
+		transform: scale( 1.02 );\
+		}\
+		30% {\
+		transform: scale( 1 );\
+		}\
+	}';
 	style.innerHTML = keyFrames;
 	document.getElementsByTagName('head')[0].appendChild(style);
 	var style = document.createElement('style');
@@ -235,6 +224,19 @@ transform: scale( 1 );\
 $(document).ready(function(){
 	setTimeout(function(){
 		startMonitoring();
+		lpTag.events.bind({
+			eventName : "OFFER_CLICK",
+			appName : "LP_OFFERS",
+			func: clickOrNot,
+			triggerOnce : false
+		});
+
+		lpTag.events.bind({
+			eventName : "state",
+			appName : "lpUnifiedWindow",
+			func: interactiveOrNot,
+			triggerOnce : false
+		});
 		setTimeout(function(){
 			var wt8si = $('#wt_8si').length;
 			var wt8no = $('#wt_8no').length;
