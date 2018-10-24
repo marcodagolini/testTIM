@@ -87,7 +87,7 @@ function clickOrNot(data, eventInfo){
 
 function interactiveOrNot(data, eventInfo){
 	if(window.console && window.JSON){
-		if(lpTag.sdes.get('ctmrinfo') === "undefined"){
+		if(lpTag.sdes.get('ctmrinfo') === undefined){
 			if(data.state === "interactive"){
 				console.log("interactive");
 				lpTag.sdes = lpTag.sdes||[];
