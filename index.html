@@ -71,6 +71,11 @@ function clickOrNot(data, eventInfo){
 			// $("body").append(txt);
 			// var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Chat_Interattiva_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
 			// $("body").append(txt);
+			localStorage.setItem('LPinterMD', 'yes');
+			var myCheck = localStorage.getItem('LPinterMD');
+			if(myCheck === "yes"){
+				console.log("found"):
+			}
 			lpTag.sdes = lpTag.sdes||[];
 			lpTag.sdes.push({
 				"type": "ctmrinfo",
@@ -90,6 +95,11 @@ function interactiveOrNot(data, eventInfo){
 		if(lpTag.sdes.get('ctmrinfo') === undefined){
 			if(data.state === "interactive"){
 				console.log("interactive");
+				localStorage.setItem('LPinterMD', 'yes');
+				var myCheck = localStorage.getItem('LPinterMD');
+				if(myCheck === "yes"){
+					console.log("found"):
+				}
 				lpTag.sdes = lpTag.sdes||[];
 				lpTag.sdes.push({
 					"type": "ctmrinfo",
