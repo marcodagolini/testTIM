@@ -75,6 +75,19 @@ function interactiveOrNot(data, eventInfo){
 					"cstatus": "interactive"
 				}
 			});
+			setTimeout(function(){
+				console.log("inside1");
+				if((lpTag.sdes.get('ctmrinfo')[lpTag.sdes.get('ctmrinfo').length-1].info.cstatus) === "interactive"){
+					console.log("inside2");
+					lpTag.sdes = lpTag.sdes||[];
+					lpTag.sdes.push({
+						"type": "ctmrinfo",
+						"info": {
+							"cstatus": "convs"
+						}
+					});
+				}
+			}, 10000);
 			// var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Chat_Interattiva_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
 			// $("body").append(txt);
 		}
