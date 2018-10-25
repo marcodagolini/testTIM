@@ -38,7 +38,7 @@ function clickOrNot(data, eventInfo){
 	
 function interactiveOrNot(data, eventInfo){
 	if(window.console && window.JSON){
-		if((data.state === "interactive") && (localStorage.getItem('LPinterMD') === "yes")){
+		if((data.state === "interactive") && (localStorage.getItem('LPclickMD') === "yes")){
 			console.log("interactive");
 			localStorage.setItem('LPinterMD', 'yes');
 			localStorage.setItem('LPclickMD', '');
