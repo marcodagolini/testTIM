@@ -24,14 +24,19 @@
 
 $(document).ready(function(){
 	var myValue = "EC-";
-	var mySpan = 
+	var mySpan = $('.codice').length;
+	if(mySpan){
+		myValue = $('#item1 span').text();
+		console.log(myValue);
+	}
 
 					lpTag.sdes = lpTag.sdes||[];
 					lpTag.sdes.push(
 						{
 							"type": "ctmrinfo",  //MANDATORY
 							"info": {
-								"cstatus": "converted"  //CUSTOMER LIFECYCLE STATUS. FROM PRE-DEFINED LIST
+								"cstatus": "converted",
+								"ctype": myValue
 							}
 						}
 					);
