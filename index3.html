@@ -33,6 +33,7 @@ window._adftrack.push({
 function clickOrNot(data, eventInfo){
 	console.log("click");
 	if(window.console && window.JSON){
+		localStorage.setItem('LPclickMD', 'yes');
 		if(data.campaignId === 825663232){
 			var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Click_Bottone_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
 			$("body").append(txt);
@@ -58,20 +59,19 @@ function clickOrNot(data, eventInfo){
 
 function interactiveOrNot(data, eventInfo){
 	if(window.console && window.JSON){
-		if(lpTag.sdes.get('ctmrinfo') === undefined){
-			if(data.state === "interactive"){
-				console.log("interactive");
-				localStorage.setItem('LPinterMD', 'yes');
-				lpTag.sdes = lpTag.sdes||[];
-				lpTag.sdes.push({
-					"type": "ctmrinfo",
-					"info": {
-						"cstatus": "interactive"
-					}
-				});
-				var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Chat_Interattiva_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
-				$("body").append(txt);
-			}
+		if((data.state === "interactive") && (localStorage.getItem('LPclickMD') === "yes")){
+			console.log("interactive");
+			localStorage.setItem('LPinterMD', 'yes');
+			localStorage.setItem('LPclickMD', '');
+			lpTag.sdes = lpTag.sdes||[];
+			lpTag.sdes.push({
+				"type": "ctmrinfo",
+				"info": {
+					"cstatus": "interactive"
+				}
+			});
+			var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Chat_Interattiva_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
+			$("body").append(txt);
 		}
 	}
 }	
@@ -216,6 +216,7 @@ $(document).ready(function(){
 				console.log("quinta pagina");
 				var myCheck = localStorage.getItem('LPinterMD');
 				if(myCheck === "yes"){
+					localStorage.setItem('LPinterMD', '');
 					console.log("convertito");
 					var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Conversione_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
 					$("body").append(txt);
