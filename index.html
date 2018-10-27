@@ -3,7 +3,7 @@
 <!-- END LivePerson Monitor. -->
 
 
-
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 
 
 <script src="https://track.adform.net/serving/scripts/trackpoint/async/"></script>
@@ -28,6 +28,75 @@ window._adftrack.push({
         divider: encodeURIComponent('|'),
         pagename: encodeURIComponent('Conversione_Liveperson')
     });
+	
+	
+	
+setTimeout(function(){
+
+console.log("push");
+
+lpTag.sdes = lpTag.sdes||[];
+lpTag.sdes.push(
+   {
+        "type": "personal",  //MANDATORY
+            "personal": {
+            "firstname": "John",  // FIRST NAME
+            "lastname": "Doe",  // SURNAME
+            "age": {
+               "age": 34,  // AGE AS INTEGER
+               "year": 1980,  // BIRTH YEAR
+               "month": 4,  // BIRTH MONTH
+               "day": 15  // BIRTH DAY
+           },
+            "contacts": [{
+               "email": "myname@example.com",  // EMAIL
+               "phone": "+1 212-788-8877"  // PHONE NUMBER
+           }],
+            "gender": "MALE",  // MALE, FEMALE, OTHER
+            "language": "en-US",  // LANGUAGE 
+            "company": "company"  // VISITOR COMPANY NAME
+        }
+   }
+);
+
+
+
+}, 10000);
+	
+	
+	
+	
+
+	
+function offeredOrNot(){
+	console.log("offered");
+	setTimeout(function(){
+		if($(".LPMcontainer").find('div.zoom').length !== 0){
+			$(".LPMcontainer").addClass( "move" );
+		}
+		if($(".LPMcontainer").find('div.zoommobile').length !== 0){
+			$(".LPMcontainer").addClass( "movemobile" );
+		}
+	}, 1000);
+			   
+	setTimeout(function(){
+		if($(".LPMcontainer").find('div.zoom').length !== 0){
+			$(".LPMcontainer").removeClass( "zoom" );
+			$(".LPMcontainer").removeClass( "move" );
+			$(".LPMcontainer").addClass( "fix" );
+			$(".LPMcontainer").addClass( "beat" );
+		}
+		if($(".LPMcontainer").find('div.zoommobile').length !== 0){
+			$(".LPMcontainer").removeClass( "zoommobile" );
+			$(".LPMcontainer").removeClass( "movemobile" );
+			$(".LPMcontainer").addClass( "fixmobile" );
+			$(".LPMcontainer").addClass( "beatmobile" );
+		}
+	}, 5000);
+		
+}	
+
+	
 
 
 
@@ -36,13 +105,13 @@ function clickOrNot(data, eventInfo){
 	if(window.console && window.JSON){
 		localStorage.setItem('LPclickMD', 'yes');
 		if(data.campaignId === 825663232){
-			var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Click_Bottone_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
-			$("body").append(txt);
+			// var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Click_Bottone_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
+			// $("body").append(txt);
 		}else{
-			var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Click_Bottone_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
-			$("body").append(txt);
-			var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Chat_Interattiva_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
-			$("body").append(txt);
+			// var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Click_Bottone_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
+			// $("body").append(txt);
+			// var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Chat_Interattiva_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
+			// $("body").append(txt);
 			localStorage.setItem('LPclickMD', '');
 			localStorage.setItem('LPinterMD', 'yes');
 			lpTag.sdes = lpTag.sdes||[];
@@ -72,8 +141,8 @@ function interactiveOrNot(data, eventInfo){
 					"cstatus": "interactive"
 				}
 			});
-			var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Chat_Interattiva_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
-			$("body").append(txt);
+			// var txt = '<p style="margin:0;padding:0;border:0;"><img src="https://track.adform.net/Serving/TrackPoint/?pm=307530&ADFPageName=Chat_Interattiva_Liveperson&ADFdivider=|" width="1" height="1" alt="" /></p>';
+			// $("body").append(txt);
 		}
 	}
 }	
@@ -84,49 +153,10 @@ function interactiveOrNot(data, eventInfo){
 /****
       funzione per cominciare il monitoring del pulsante e di sessioni eventualmente gia'aperte
 ****/
-   function startMonitoring(){
-	   
-	   var refreshIntervalId1;
 
-	   
-	   refreshIntervalId1 = setInterval(function(){
-		   var myEle = document.getElementsByClassName("LPMcontainer")[0];
-		   if(myEle){
-			   setTimeout(function(){
-				   if($(".LPMcontainer").find('div.zoom').length !== 0){
-					   $(".LPMcontainer").addClass( "move" );
-				   }
-				   if($(".LPMcontainer").find('div.zoommobile').length !== 0){
-					   $(".LPMcontainer").addClass( "movemobile" );
-				   }
-			   }, 1000);
 			   
-			   setTimeout(function(){
-				   if($(".LPMcontainer").find('div.zoom').length !== 0){
-					   $(".LPMcontainer").removeClass( "zoom" );
-					   $(".LPMcontainer").removeClass( "move" );
-					   $(".LPMcontainer").addClass( "fix" );
-					   $(".LPMcontainer").addClass( "beat" );
-				   }
-				   if($(".LPMcontainer").find('div.zoommobile').length !== 0){
-					   $(".LPMcontainer").removeClass( "zoommobile" );
-					   $(".LPMcontainer").removeClass( "movemobile" );
-					   $(".LPMcontainer").addClass( "fixmobile" );
-					   $(".LPMcontainer").addClass( "beatmobile" );
-				   }
-			   }, 5000);
 			
-			   console.log("button presented");
-			   clearInterval(refreshIntervalId1);
 
-		   }
-	   }, 100);
-	   
-
-	   	
-	   
-	   
-   }
 	  
 	  
 
@@ -150,6 +180,14 @@ function interactiveOrNot(data, eventInfo){
 	style.type = 'text/css';
 	style.innerHTML = '.beat{animation: heartbeat 5s infinite;} .move {right:0px;transform: translate(-370px, 0);transition-duration: 2s;} .zoom {position:absolute;bottom:20px;right:-350px;} .fix {right:370px !important;} .beatmobile{animation: heartbeat 5s infinite;} .movemobile {right:0px;transform: translate(-720px, 0);transition-duration: 2s;} .zoommobile {position:absolute;bottom:20px;right:-700px;} .fixmobile {right:720px !important;}'; 
 	document.getElementsByTagName('head')[0].appendChild(style);
+	
+	
+lpTag.events.bind({
+    eventName : "OFFER_IMPRESSION",
+    appName : "LP_OFFERS",
+    func: offeredOrNot,
+    triggerOnce : false
+ });
 
 //*********
 //this section below tracks the page of the funnel visited.
@@ -158,7 +196,6 @@ function interactiveOrNot(data, eventInfo){
 //*********
 $(document).ready(function(){
 	setTimeout(function(){
-		startMonitoring();
 		lpTag.events.bind({
 			eventName : "OFFER_CLICK",
 			appName : "LP_OFFERS",
