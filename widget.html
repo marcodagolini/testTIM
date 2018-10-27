@@ -9,27 +9,22 @@
 .prodotto{
 	text-align: center;
 	color: red;
-	font-size: 16px;
-	background-color: #FFFF00"
+	font-size: 26px;
 }
 	
 	
-.web-button {
-    background-color: #f68a1f;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 4px;
-    cursor: pointer;
-	  border-radius: 4px;
-	  -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-	  font-family: "Myriad pro","Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans",sans-serif;
+.green {
+	text-align: center;
+	color: green;
+	font-size: 26px;
 }
+	
+.red {
+	text-align: center;
+	color: green;
+	font-size: 26px;
+}
+
 
  
 </style>
@@ -57,6 +52,13 @@
                 var onSuccess1 = function(data) {
                 // Do something with the returning data
                 	console.log(data);
+			if(data === "DESKTOP"){
+				document.getElementById("myCoBrowse").innerHTML = "E' possibile effettuare CoBrowse";
+				$("#myCoBrowse").addClass("green");
+			} else{
+				document.getElementById("myCoBrowse").innerHTML = "Non e' possibile effettuare CoBrowse";
+				$("#myCoBrowse").addClass("red");
+			}
                 };
                 
                 var onError1 = function(data) {
@@ -65,7 +67,30 @@
                 };
 		
 		var onSuccess2 = function(data) {
-			console.log(data[0].url);
+			var myChannel = data[0].url
+			console.log(myChannel);
+			if(myChannel.includes("3115")){
+				document.getElementById("mioProdotto").innerHTML = "TIM CONNECT NIP ADSL";
+			}
+			else if(myChannel.includes("3116")){
+				document.getElementById("mioProdotto").innerHTML = "TIM CONNECT NIP FIBRA";
+			}
+			else if(myChannel.includes("3117")){
+				document.getElementById("mioProdotto").innerHTML = "TIM CONNECT GOLD NIP ADSL";
+			}
+			else if(myChannel.includes("3121")){
+				document.getElementById("mioProdotto").innerHTML = "TIM CONNECT GOLD NIP FIBRA";
+			}
+			else if(myChannel.includes("3125")){
+				document.getElementById("mioProdotto").innerHTML = "TIM CONNECT BLACK NIP ADSL";
+			}
+			else if(myChannel.includes("3126")){
+				document.getElementById("mioProdotto").innerHTML = "TIM CONNECT BLACK NIP FIBRA";
+			}
+			else{
+				document.getElementById("mioProdotto").innerHTML = "OFFERTA NON RICONOSCIUTA";
+			}
+			
 		};
                 
                 var onError2 = function(data) {
@@ -91,12 +116,12 @@
   </br>
   </br>
 	
-<div id="mywidget">Prodotto di interesse: </div>
-<div class="prodotto">Prodotto di interesse1: </div>
+<div id="mywidget">Prodotto di interesse:</div>
+<div id="mioProdotto" class="prodotto"></div>
 
   </br>
   </br>
-	<label>Definisci una tripletta: </label>
+	<div id="myCoBrowse" class"coBrowse"></div>
   
  
 
