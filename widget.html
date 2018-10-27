@@ -62,7 +62,7 @@ textarea {
                 };
 		
 		var onSuccess2 = function(data) {
-			console.log(data);
+			console.log(data[0].url);
 		};
                 
                 var onError2 = function(data) {
@@ -73,7 +73,7 @@ textarea {
 		
              
                 SDK.get('visitorInfo.device', onSuccess1, onError1);
-		SDK.get('visitorInfo.visitorId', onSuccess2, onError2);
+		SDK.get('visitorJourney.pages', onSuccess2, onError2);
 
                
               
